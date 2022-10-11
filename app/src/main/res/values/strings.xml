@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Prayer_Bank</string>
+    <string name="praybutton">prayButton</string>
+    <string name="homebutton">homebutton</string>
+    <string name="mypagebutton">mypagebutton</string>
+    <string name="summarybutton">summarybutton</string>
+    <string name="calendarbutton">calendarbutton</string>
+    <string name="categorybutton">categorybutton</string>
+    <string name="my_prayer_bank">MY PRAYER BANK</string>
+    <string name="calendar">CALENDAR</string>
+    <string name="diary">diary</string>
 </resources>

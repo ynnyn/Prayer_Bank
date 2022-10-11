@@ -25,11 +25,11 @@
             android:layout_marginTop="15dp"
             android:adjustViewBounds="true"
             android:background="#00FFFFFF"
-            android:contentDescription="@string/menu"
+            android:contentDescription="categorybutton"
             android:maxHeight="50dp"
             android:scaleType="fitStart"
             app:srcCompat="@drawable/menu"
-            tools:ignore="DuplicateSpeakableTextCheck" />
+            tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
 
         <TextView
             android:id="@+id/textView"
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/todo"
+        android:contentDescription="praybutton"
         android:maxHeight="43dp"
         android:minHeight="45dp"
         android:scaleType="fitCenter"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/img_1008"
-        tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/todo"
+        android:contentDescription="homebutton"
         android:maxHeight="43dp"
         android:minHeight="45dp"
         android:scaleType="fitCenter"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/home"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/mypageButton"
@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/todo"
+        android:contentDescription="mypagebutton"
         android:maxHeight="43dp"
         android:minHeight="45dp"
         android:scaleType="fitCenter"
@@ -119,7 +119,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/person_crop_circle"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/summaryButton"
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/todo"
+        android:contentDescription="summarybutton"
         android:maxHeight="43dp"
         android:minHeight="45dp"
         android:scaleType="fitCenter"
@@ -139,7 +139,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977"
         app:srcCompat="@drawable/graph_square_fill"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
 
     <ImageButton
@@ -148,7 +148,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/todo"
+        android:contentDescription="calendarbutton"
         android:maxHeight="43dp"
         android:scaleType="fitCenter"
         android:visibility="visible"
@@ -159,7 +159,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977"
         app:srcCompat="@drawable/event"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -173,7 +173,7 @@
         app:layout_constraintStart_toEndOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         app:srcCompat="@drawable/resource_class"
-        android:contentDescription="@string/todo_1" />
+        android:contentDescription="@string/diary" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
