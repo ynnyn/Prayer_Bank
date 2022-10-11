@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.19519927536231885" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19519927536231885" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2603070024131001" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_mypage.xml" value="0.19519927536231885" />
-        <entry key="app/src/main/res/layout/activity_prayer.xml" value="0.302536231884058" />
+        <entry key="app/src/main/res/layout/activity_prayer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_summary.xml" value="0.302536231884058" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2699305216471354" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.15494791666666666" />
       </map>
     </option>
   </component>

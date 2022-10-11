@@ -19,4 +19,8 @@
     <string name="alarmbutton">alarmbutton</string>
     <string name="goalbutton">goalbutton</string>
     <string name="settingsbutton">settingsbutton</string>
+    <string name="categories">CATEGORIES</string>
+    <string name="me">ME</string>
+    <string name="family">FAMILY</string>
+    <string name="friends">FRIENDS</string>
 </resources>
