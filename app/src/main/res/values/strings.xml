@@ -9,4 +9,14 @@
     <string name="my_prayer_bank">MY PRAYER BANK</string>
     <string name="calendar">CALENDAR</string>
     <string name="diary">diary</string>
+    <string name="my_page">MY PAGE</string>
+    <string name="profile">profile</string>
+    <string name="nickname">Nickname</string>
+    <string name="edit">EDIT</string>
+    <string name="alarm">Alarm</string>
+    <string name="goal">Goal</string>
+    <string name="settings">Settings</string>
+    <string name="alarmbutton">alarmbutton</string>
+    <string name="goalbutton">goalbutton</string>
+    <string name="settingsbutton">settingsbutton</string>
 </resources>
