@@ -55,12 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //main -> home
-        homebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent home = new Intent(MainActivity.this, MainActivity.this);
-            }
-        });
+
 
 
 
