@@ -24,13 +24,13 @@
         android:layout_height="3dp"
         android:layout_marginBottom="28dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/prayButton2"
+        app:layout_constraintBottom_toTopOf="@+id/prayButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/mypageButton3"
+        android:id="@+id/mypageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -50,7 +50,7 @@
         tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
-        android:id="@+id/summaryButton2"
+        android:id="@+id/summaryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -61,16 +61,16 @@
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mypageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/mypageButton"
         app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toEndOf="@+id/prayButton2"
+        app:layout_constraintStart_toEndOf="@+id/prayButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977"
         app:srcCompat="@drawable/graph_square_fill"
         tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
-        android:id="@+id/prayButton2"
+        android:id="@+id/prayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -90,7 +90,7 @@
         tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
-        android:id="@+id/calendarButton2"
+        android:id="@+id/calendarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -100,16 +100,16 @@
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/prayButton2"
+        app:layout_constraintEnd_toStartOf="@+id/prayButton"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toEndOf="@+id/homeButton2"
+        app:layout_constraintStart_toEndOf="@+id/homeButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/event"
         tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     <ImageButton
-        android:id="@+id/homeButton2"
+        android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -176,7 +176,69 @@
         android:background="#E2EDF6"
         app:layout_constraintBottom_toTopOf="@+id/divider10"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider11" />
+        app:layout_constraintTop_toBottomOf="@+id/divider11" >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="234dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="TODAY'S PRAYER"
+                android:textColor="#000000"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/editTextTextMultiLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                android:layout_marginTop="50dp"
+                android:hint="Write down your prayer title"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextTextMultiLine">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:text="THANKS OF THE DAY"
+                android:textColor="#000000"
+                android:textSize="13dp" />
+
+            <CheckedTextView
+                android:id="@+id/checkedTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="Thanks to sky" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CheckBox" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
