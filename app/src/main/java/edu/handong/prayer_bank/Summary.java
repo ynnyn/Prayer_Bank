@@ -5,9 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+
+import java.util.ArrayList;
 
 public class Summary extends AppCompatActivity {
+
+    ArrayList<Integer> jsonList = new ArrayList<>(); // ArrayList 선언
+    ArrayList<String> labelList = new ArrayList<>(); // ArrayList 선언
+    //Bar chart
+    private BarChart barChart;
+    TextView minuteTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,5 +81,44 @@ public class Summary extends AppCompatActivity {
         });
 
 
+        //Bar chart
+        barChart = (BarChart) findViewById(R.id.chart_week);
+        graphInitSetting();    //그래프 기본 세팅
+
+        BarChartGraph(labelList, jsonList);
+        barChart.setTouchEnabled(false); //확대하지 못하게 막아버림
+        barChart.getAxisRight().setAxisMaxValue(80);
+
+
+
     }
+
+    public void graphInitSetting(){
+        labelList.add("S");
+        labelList.add("M");
+        labelList.add("T");
+        labelList.add("W");
+        labelList.add("T");
+        labelList.add("F");
+        labelList.add("S");
+
+        jsonList.add(10); //element
+
+        BarChartGraph(labelList, jsonList);
+    }
+
+    /**
+     * 그래프함수
+     */
+    private void BarChartGraph(ArrayList<String> labelList, ArrayList<Integer> valList) {
+        // BarChart 메소드
+
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        for (int i = 0; i < valList.size(); i++) {
+            entries.add(new BarEntry((Integer) valList.get(i), i));
+        }
+
+        //BarDataSet depenses = new BarDataSet(entries, "")
+    }
+
 }

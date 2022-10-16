@@ -136,6 +136,8 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
         <com.github.mikephil.charting.charts.BarChart
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/chart_week"
+
             />
 
     </LinearLayout>

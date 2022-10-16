@@ -4,22 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Todays_report">
+    tools:context=".Thanksgiving">
 
     <View
-        android:id="@+id/divider11"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="3dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner" />
-
-    <View
-        android:id="@+id/divider10"
+        android:id="@+id/divider18"
         android:layout_width="0dp"
         android:layout_height="3dp"
         android:layout_marginBottom="28dp"
@@ -128,6 +116,18 @@
         app:srcCompat="@drawable/home"
         tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="3dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
+
     <LinearLayout
         android:id="@+id/banner"
         android:layout_width="421dp"
@@ -138,26 +138,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/left_change"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:adjustViewBounds="true"
-            android:background="#00FFFFFF"
-            android:contentDescription="categorybutton"
-            android:maxHeight="50dp"
-            android:scaleType="fitStart"
-            app:srcCompat="@drawable/menu"
-            tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
+            android:background="@color/white"
+            android:maxHeight="40dp"
+            android:paddingHorizontal="10dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/arrowtriangle_left_fill" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/todays_report"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:text="@string/thanksgiving"
             android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="@+id/prayButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -166,90 +164,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.038" />
 
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/white"
+            android:paddingHorizontal="10dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/arrowtriangle_right_fill" />
+
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="365dp"
-        android:layout_height="447dp"
-        android:layout_marginStart="24dp"
-        android:background="#E2EDF6"
-        app:layout_constraintBottom_toTopOf="@+id/divider10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider11" >
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layour_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="123dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="13dp"
-                android:text="TODAY'S PRAYER"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/editTextTextMultiLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:ems="10"
-                android:hint="Write down your prayer title"
-                android:inputType="textMultiLine"
-                app:layout_constraintStart_toStartOf="@+id/textView12" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="238dp"
-            android:orientation="vertical"
-            android:layout_gravity="bottom">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="13dp"
-                android:text="THANKS OF THE DAY"
-                android:textColor="#000000"
-                android:textSize="13dp" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="37dp"
-                android:layout_height="29dp"
-                android:layout_gravity="right"
-                android:padding="30dp"
-                app:srcCompat="@drawable/pencil" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="dd" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="RadioButton" />
-            </RadioGroup>
-
-        </LinearLayout>
-
-
-    </FrameLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

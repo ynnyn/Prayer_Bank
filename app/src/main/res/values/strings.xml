@@ -24,4 +24,7 @@
     <string name="family">FAMILY</string>
     <string name="friends">FRIENDS</string>
     <string name="todays_report">Today\'s report</string>
+    <string name="prayer_topics">Prayer topics</string>
+    <string name="thanksgiving">Thanksgiving</string>
+    <string name="faivorites">Favorites</string>
 </resources>
