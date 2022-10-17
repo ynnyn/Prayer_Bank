@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/category_me">
+
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="edu.handong.myapplication.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/category_me"
+        android:name="edu.handong.prayer_bank.Category_me"
+        android:label="fragment_category_me"
+        tools:layout="@layout/fragment_category_me2" />
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="edu.handong.myapplication.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/category_family"
+        android:name="edu.handong.prayer_bank.Category_family"
+        android:label="fragment_category_family"
+        tools:layout="@layout/fragment_category_family2" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="edu.handong.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/category_friends"
+        android:name="edu.handong.prayer_bank.Category_friends"
+        android:label="fragment_category_friends2"
+        tools:layout="@layout/fragment_category_friends2" />
+
 </navigation>

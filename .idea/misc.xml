@@ -3,13 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.19519927536231885" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2603070024131001" />
+        <entry key="app/src/main/res/layout/absent_view.xml" value="0.22227630615234378" />
+        <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.16356353759765627" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2751983642578125" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_mypage.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_prayer.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_summary.xml" value="0.302536231884058" />
-        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2699305216471354" />
+        <entry key="app/src/main/res/layout/activity_summary.xml" value="0.24528301886792453" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.279874213836478" />
+        <entry key="app/src/main/res/layout/current_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/default_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_category_family2.xml" value="0.26229095458984364" />
+        <entry key="app/src/main/res/layout/fragment_category_friends2.xml" value="0.18568840579710144" />
+        <entry key="app/src/main/res/layout/fragment_category_me2.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.20505777994791663" />
+        <entry key="app/src/main/res/layout/present_view.xml" value="0.1" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.15494791666666666" />
       </map>
     </option>
