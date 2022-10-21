@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Prayer extends AppCompatActivity {
+public class Prayer_topics extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prayer);
+        setContentView(R.layout.activity_prayer_topics);
 
         //make the main button
         ImageButton praybutton = findViewById(R.id.prayButton);
@@ -22,45 +22,44 @@ public class Prayer extends AppCompatActivity {
         ImageButton homebutton = findViewById(R.id.homeButton);
 
         //screen change
-        //player -> pray screen
+        // -> pray screen
         praybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent pray = new Intent(Prayer.this, Prayer.class);
+                Intent pray = new Intent(Prayer_topics.this, Prayer.class);
                 startActivity(pray);
             }
         });
-        //player -> my page screen
+        // -> my page screen
         mypagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mypage = new Intent(Prayer.this, MyPage.class);
+                Intent mypage = new Intent(Prayer_topics.this, MyPage.class);
                 startActivity(mypage);
             }
         });
-        //player -> summary screen
+        // -> summary screen
         summarybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent summary = new Intent(Prayer.this, Summary.class);
+                Intent summary = new Intent(Prayer_topics.this, Summary.class);
                 startActivity(summary);
             }
         });
-        //player -> calender
+        // -> calender
         calenderbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent calender = new Intent(Prayer.this, Calendar.class);
+                Intent calender = new Intent(Prayer_topics.this, Calendar.class);
                 startActivity(calender);
             }
         });
-        //player -> home
+        // -> home
         homebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent home = new Intent(Prayer.this, MainActivity.class);
+                Intent home = new Intent(Prayer_topics.this, MainActivity.class);
             }
         });
-
     }
 }

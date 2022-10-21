@@ -239,7 +239,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="405dp"
-        android:text="@string/mom"
+        android:text="Mom"
         android:textColor="#171717"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/divider2"

@@ -14,6 +14,27 @@
         android:theme="@style/Theme.Prayer_Bank"
         tools:targetApi="31">
         <activity
+            android:name=".Favorites"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Thanksgiving"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Prayer_topics"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Todays_report"
             android:exported="false">
             <meta-data
