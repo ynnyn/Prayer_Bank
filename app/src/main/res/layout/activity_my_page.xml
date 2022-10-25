@@ -306,6 +306,7 @@
         android:contentDescription="@string/alarmbutton"
         android:maxHeight="30dp"
         android:scaleType="centerCrop"
+        android:onClick="clickBtn"
         app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView9"

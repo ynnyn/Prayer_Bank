@@ -20,6 +20,9 @@ public class Favorites extends AppCompatActivity {
         ImageButton summarybutton = findViewById(R.id.summaryButton);
         ImageButton calenderbutton = findViewById(R.id.calendarButton);
         ImageButton homebutton = findViewById(R.id.homeButton);
+        //left, right button
+        ImageButton leftButton = findViewById(R.id.leftButton);
+        ImageButton rightButton = findViewById(R.id.rightButton);
 
         //screen change
         // -> pray screen
@@ -59,6 +62,25 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent home = new Intent(Favorites.this, MainActivity.class);
+                startActivity(home);
+            }
+        });
+
+        //click on left Button
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent thanksgiving = new Intent(Favorites.this, Thanksgiving.class);
+                startActivity(thanksgiving);
+            }
+        });
+
+        //click on right button
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent prayer_topics = new Intent(Favorites.this, Prayer_topics.class);
+                startActivity(prayer_topics);
             }
         });
     }

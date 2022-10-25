@@ -77,6 +77,7 @@ public class Summary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent home = new Intent(Summary.this, MainActivity.class);
+                startActivity(home);
             }
         });
 

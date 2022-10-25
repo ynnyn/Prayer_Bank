@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Todays_report">
+    tools:context=".Today_report">
 
     <View
         android:id="@+id/divider11"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="summarybutton"
+        android:contentDescription="summary button"
         android:maxHeight="43dp"
         android:minHeight="45dp"
         android:scaleType="fitCenter"
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="praybutton"
+        android:contentDescription="pray button"
         android:maxHeight="43dp"
         android:minHeight="45dp"
         android:scaleType="fitCenter"
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
-        android:contentDescription="calendarbutton"
+        android:contentDescription="calendar button"
         android:maxHeight="43dp"
         android:scaleType="fitCenter"
         android:visibility="visible"
@@ -138,25 +138,26 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:id="@+id/leftButton"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:maxHeight="40dp"
             android:layout_marginTop="15dp"
-            android:adjustViewBounds="true"
-            android:background="#00FFFFFF"
-            android:contentDescription="categorybutton"
-            android:maxHeight="50dp"
-            android:scaleType="fitStart"
-            app:srcCompat="@drawable/menu"
-            tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
+            android:layout_marginStart="40dp"
+            android:paddingHorizontal="15dp"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/leftButton"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/arrowtriangle_left_fill" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/todays_report"
             android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="@+id/prayButton"
@@ -165,6 +166,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.038" />
+
+        <ImageButton
+            android:id="@+id/rightButton"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/rightButton"
+            android:paddingHorizontal="15dp"
+            android:scaleType="centerInside"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/arrowtriangle_right_fill" />
 
     </LinearLayout>
 
@@ -181,28 +194,31 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layour_weight="1"
-            android:orientation="vertical">
+            android:layout_height="210dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/thanks_day">
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
-                android:text="TODAY'S PRAYER"
+                android:layout_marginStart="10dp"
+                android:text="@string/todays_prayer"
                 android:textColor="#000000"
-                android:textSize="13dp" />
+                android:textSize="13sp" />
 
-            <EditText
-                android:id="@+id/editTextTextMultiLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:ems="10"
-                android:hint="Write down your prayer title"
-                android:inputType="textMultiLine"
-                app:layout_constraintStart_toStartOf="@+id/textView12" />
+            <ImageButton
+                android:id="@+id/smile"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:background="#00000000"
+                android:contentDescription="@string/heart"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/heart_circle"
+                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
@@ -210,40 +226,60 @@
             android:layout_width="match_parent"
             android:layout_height="238dp"
             android:orientation="vertical"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            android:id = "@+id/thanks_day">
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
-                android:text="THANKS OF THE DAY"
+                android:layout_marginStart="10dp"
+                android:text="@string/thanks_of_day"
                 android:textColor="#000000"
-                android:textSize="13dp" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="37dp"
-                android:layout_height="29dp"
-                android:layout_gravity="right"
-                android:padding="30dp"
-                app:srcCompat="@drawable/pencil" />
+                android:textSize="13sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
+                <ImageButton
+                    android:id="@+id/heart2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="10dp"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/heart"
+                    app:srcCompat="@drawable/heart_circle"
+                    tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck" />
+
                 <RadioButton
                     android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="dd" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="RadioButton" />
+
+                <ImageButton
+                    android:id="@+id/pencil2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/pencil"
+                    app:srcCompat="@drawable/pencil" />
+
             </RadioGroup>
 
         </LinearLayout>

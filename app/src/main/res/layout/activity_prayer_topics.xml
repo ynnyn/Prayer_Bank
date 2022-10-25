@@ -16,15 +16,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/left_change3"
+            android:id="@+id/leftButton"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:background="@color/white"
             android:maxHeight="40dp"
-            android:paddingHorizontal="10dp"
+            android:paddingHorizontal="15dp"
             android:scaleType="centerInside"
+            android:contentDescription="@string/leftButton"
             app:srcCompat="@drawable/arrowtriangle_left_fill" />
 
         <TextView
@@ -43,18 +44,41 @@
             app:layout_constraintVertical_bias="0.038" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/rightButton"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginStart="45dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
-            android:background="@color/white"
-            android:paddingHorizontal="10dp"
+            android:background="#00000000"
+            android:paddingHorizontal="15dp"
             android:scaleType="centerInside"
+            android:contentDescription="@string/rightButton"
             app:srcCompat="@drawable/arrowtriangle_right_fill" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="409dp"
+        android:layout_height="556dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/divider12"
+        app:layout_constraintBottom_toTopOf="@id/divider13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="top"
+            android:contentDescription="@string/write_down"
+            android:paddingStart="@dimen/write_rl"
+            android:paddingTop="@dimen/write_tb"
+            android:paddingEnd="@dimen/write_rl"
+            app:srcCompat="@drawable/prayers_round_square" />
+    </FrameLayout>
 
     <View
         android:id="@+id/divider13"

@@ -1,6 +1,7 @@
 package edu.handong.prayer_bank;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -12,8 +13,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Collection;
+import java.util.Iterator;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     boolean isDrawerOpend;
 
+    RecyclerView recyclerView;
+    MemoAdapter memoAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -127,8 +138,55 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //main -> home
+        homebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(home);
+            }
+        });
 
 
+        //onCreate
+        //리사이클러뷰 세팅
+        LinearLayoutManager linearLayoutManager;
+        recyclerView = findViewById(R.id.memo_rv);//리사이클러뷰 findView
+        linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
+
+        memoAdapter = new MemoAdapter(MainActivity.this);
+        recyclerView.setLayoutManager(linearLayoutManager);//linearlayout 세팅
+        recyclerView.setAdapter(memoAdapter);//adapter 세팅
+
+
+        //쉐어드 모든 키 벨류 가져오기
+        SharedPreferences prefb =getSharedPreferences("memo_contain", MODE_PRIVATE);
+        Collection<?> col_val =  prefb.getAll().values();
+        Iterator<?> it_val = col_val.iterator();
+        Collection<?> col_key = prefb.getAll().keySet();
+        Iterator<?> it_key = col_key.iterator();
+
+
+        while(it_val.hasNext() && it_key.hasNext()) {
+            String key = (String) it_key.next();
+            String value = (String) it_val.next();
+
+            // value 값은 다음과 같이 저장되어있다
+            // "{\"title\":\"hi title\",\"content\":\"hi content\"}"
+            try {
+                // String으로 된 value를 JSONObject로 변환하여 key-value로 데이터 추출
+                JSONObject jsonObject = new JSONObject(value);
+                String title = (String) jsonObject.getString("category");
+                String content = (String) jsonObject.getString("content");
+                // 리사이클러뷰 어뎁터 addItem으로 목록 추가
+                memoAdapter.addItem(new MemoItem(key, category, content));
+            } catch (JSONException e) {
+
+            }
+
+            // 목록 갱신하여 뷰에 띄어줌
+            memoAdapter.notifyDataSetChanged();
+
+        }
 
 
     }
@@ -143,5 +201,10 @@ public class MainActivity extends AppCompatActivity {
         Toast toast=Toast.makeText(this, message, Toast.LENGTH_SHORT);
         toast.show();
     }
+
+        }
+
+
+
 
 }

@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class Todays_report extends AppCompatActivity {
+public class Today_report extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +21,15 @@ public class Todays_report extends AppCompatActivity {
         ImageButton summarybutton = findViewById(R.id.summaryButton);
         ImageButton calenderbutton = findViewById(R.id.calendarButton);
         ImageButton homebutton = findViewById(R.id.homeButton);
+        //leftButton
+        ImageButton leftButton = findViewById(R.id.leftButton);
 
         //screen change
         // -> pray screen
         praybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent pray = new Intent(Todays_report.this, Prayer.class);
+                Intent pray = new Intent(Today_report.this, Prayer.class);
                 startActivity(pray);
             }
         });
@@ -34,7 +37,7 @@ public class Todays_report extends AppCompatActivity {
         mypagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mypage = new Intent(Todays_report.this, MyPage.class);
+                Intent mypage = new Intent(Today_report.this, MyPage.class);
                 startActivity(mypage);
             }
         });
@@ -42,7 +45,7 @@ public class Todays_report extends AppCompatActivity {
         summarybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent summary = new Intent(Todays_report.this, Summary.class);
+                Intent summary = new Intent(Today_report.this, Summary.class);
                 startActivity(summary);
             }
         });
@@ -50,7 +53,7 @@ public class Todays_report extends AppCompatActivity {
         calenderbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent calender = new Intent(Todays_report.this, Calendar.class);
+                Intent calender = new Intent(Today_report.this, Calendar.class);
                 startActivity(calender);
             }
         });
@@ -58,8 +61,16 @@ public class Todays_report extends AppCompatActivity {
         homebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent home = new Intent(Todays_report.this, MainActivity.class);
+                Intent home = new Intent(Today_report.this, MainActivity.class);
+                startActivity(home);
             }
         });
+
+        //multiline text 입력
+        EditText today_prayer = findViewById(R.id.todays_prayer);
+        String str = today_prayer.getText().toString();
+
+        //left button 눌렀을 때
+        //leftButton.setOnClickListener();
     }
 }

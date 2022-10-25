@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:width="303dp"
+    android:height="449dp"
+    android:background="#E0EFF3"
+    android:viewportWidth="303"
+    android:viewportHeight="449"
+
+    tools:context=".Write_prayer_topics">
+
+    <!-- Write Prayer -->
+    <TextView
+        android:id="@+id/when_date"
+        android:layout_width="69dp"
+        android:layout_height="16dp"
+        android:gravity="start|top"
+        android:layout_marginStart="@dimen/write_rl"
+        android:layout_marginTop="@dimen/write_tb"
+        android:text="@string/when_date"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/write_pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/write_rl"
+        android:layout_marginTop="50dp"
+        android:maxWidth="290dp"
+        android:maxHeight="400dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/write_down"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:text="@string/save" />
+
+</RelativeLayout>

@@ -13,9 +13,9 @@
         android:layout_marginStart="148dp"
         android:layout_marginTop="80dp"
         android:gravity="center"
-        android:text="SUMMARY"
+        android:text="@string/summary"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="MY PRAYER STATUS"
+        android:text="@string/prayer_status"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -50,7 +50,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="162dp"
         android:layout_marginBottom="93dp"
-        android:text="Today"
+        android:text="@string/today"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="162dp"
         android:layout_marginBottom="120dp"
-        android:text="Goal"
+        android:text="@string/goal"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toEndOf="@+id/progressBar"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="This week"
+        android:text="@string/this_week"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
@@ -95,6 +95,7 @@
             android:layout_width="200dp"
             android:layout_height="111dp"
             android:layout_gravity="center"
+            android:contentDescription="@string/round_square"
             app:srcCompat="@drawable/round_square" />
 
         <TextView
@@ -102,8 +103,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="10dp"
-            android:text="You did a really good job! \n I’m so proud of you. \n Thank you for giving your time to me :)"
+            android:padding="4dp"
+            android:textSize="11sp"
+            android:text="@string/good_text1"
             android:textColor="@color/black"
             android:visibility="invisible" />
 
@@ -112,9 +114,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="10dp"
-            android:text="Come on, you can reach the goal!\n \nWatch and pray so that you will not fall
-into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
+            android:padding="4dp"
+            android:textSize="11sp"
+            android:text="@string/motivate_text1"
             android:textColor="@color/black"
             android:visibility="visible" />
 
@@ -157,6 +159,7 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/smile_jesus"
             android:visibility="gone"
             app:srcCompat="@drawable/img_1006" />
 
@@ -164,6 +167,7 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/sad_jesus"
             android:visibility="visible"
             app:srcCompat="@drawable/img_1007" />
 

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 import org.naishadhparmar.zcustomcalendar.CustomCalendar;
 
+
 public class Calendar extends AppCompatActivity {
 
     CustomCalendar customCalendar;
@@ -28,6 +29,9 @@ public class Calendar extends AppCompatActivity {
         ImageButton summarybutton = findViewById(R.id.summaryButton);
         ImageButton calenderbutton = findViewById(R.id.calendarButton);
         ImageButton homebutton = findViewById(R.id.homeButton);
+
+        //button
+        ImageButton diaryButton = findViewById(R.id.diary);
 
         //screen change
         //calender -> pray screen
@@ -67,6 +71,15 @@ public class Calendar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent home = new Intent(Calendar.this, MainActivity.class);
+                startActivity(home);
+            }
+        });
+
+        diaryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent today_report = new Intent(Calendar.this, Today_report.class);
+                startActivity(today_report);
             }
         });
 

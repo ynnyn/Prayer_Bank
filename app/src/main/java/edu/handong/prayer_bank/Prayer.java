@@ -78,6 +78,7 @@ public class Prayer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent home = new Intent(Prayer.this, MainActivity.class);
+                startActivity(home);
             }
         });
 
