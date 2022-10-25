@@ -27,4 +27,10 @@
     <string name="prayer_topics">Prayer topics</string>
     <string name="thanksgiving">Thanksgiving</string>
     <string name="faivorites">Favorites</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="todo">TODO</string>
+    <string name="prayer_bank">PRAYER BANK</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

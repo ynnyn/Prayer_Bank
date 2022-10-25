@@ -5,12 +5,14 @@
       <map>
         <entry key="app/src/main/res/layout/absent_view.xml" value="0.22227630615234378" />
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.21220550537109378" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2751983642578125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_mypage.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_prayer.xml" value="0.21757659912109378" />
         <entry key="app/src/main/res/layout/activity_prayer_topics.xml" value="0.2463768115942029" />
         <entry key="app/src/main/res/layout/activity_summary.xml" value="0.24528301886792453" />
+        <entry key="app/src/main/res/layout/activity_thanksgiving.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.22644927536231885" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.279874213836478" />
         <entry key="app/src/main/res/layout/current_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/default_view.xml" value="0.1" />
