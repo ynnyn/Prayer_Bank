@@ -18,18 +18,19 @@ import java.util.Formatter;
 
 public class Prayer extends AppCompatActivity {
 
-    LinearLayout timeCountSettingLV, timeCountLV;
+    LinearLayout timeAll, timeCountSettingLV, timeCountLV;
     EditText hourET, minuteET, secondET;
     TextView hourTV, minuteTV, secondTV, finishTV;
     Button startBtn;
     int hour, minute, second;
-    Log.v("Test","This is the test message!");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayer);
 
         timeCountSettingLV = findViewById(R.id.timeCountSettingLV);
+//        timeCountSettingLV = findViewById(R.id.timeCountSettingLV);
         timeCountLV = findViewById(R.id.timeCountLV);
         // User Input
         hourET = findViewById(R.id.hourET);
