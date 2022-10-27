@@ -1,5 +1,6 @@
 package edu.handong.prayer_bank;
 
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,7 @@ public class Prayer extends AppCompatActivity {
     TextView hourTV, minuteTV, secondTV, finishTV;
     Button startBtn;
     int hour, minute, second;
-
+    Log.v("Test","This is the test message!");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class Prayer extends AppCompatActivity {
         finishTV = findViewById(R.id.finishTV);
 
         startBtn = findViewById(R.id.start_button);
-
+        // ...
         // 시작버튼 이벤트 1처리
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
