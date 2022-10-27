@@ -15,6 +15,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Formatter;
 
+// 이거 되면 공통으로 쓸 수 있다.
 public class Prayer extends AppCompatActivity {
 
     LinearLayout timeCountSettingLV, timeCountLV;
