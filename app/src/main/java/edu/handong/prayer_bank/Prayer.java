@@ -24,11 +24,13 @@ public class Prayer extends AppCompatActivity {
     Button startBtn;
     int hour, minute, second;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayer);
-
+        // commit용 의미 없는 코드
+        timeAll =  findViewById(R.id.timeAll);
         timeCountSettingLV = findViewById(R.id.timeCountSettingLV);
 //        timeCountSettingLV = findViewById(R.id.timeCountSettingLV);
         timeCountLV = findViewById(R.id.timeCountLV);
