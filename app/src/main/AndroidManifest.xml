@@ -13,11 +13,25 @@
         android:theme="@style/Theme.Prayer_Bank"
         tools:targetApi="31">
         <activity
-            android:name=".Write_prayer_topics"
+            android:name=".View_pt"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".Write_prayer_topics"
+            android:exported="false"
+            android:label="@string/write_down">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Favorites"

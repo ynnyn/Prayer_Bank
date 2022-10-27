@@ -163,66 +163,70 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04000002" />
 
-        <FrameLayout
-            android:id="@+id/today_prayer"
-            android:layout_width="360dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="3dp"
-            android:background="#E0EFF3"
-            android:isScrollContainer="true"
-            android:scrollbars="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/today_thanks"
+
+        <LinearLayout
+            android:id="@+id/write_page"
+            android:layout_width="400dp"
+            android:layout_height="568dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/divider2"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider">
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="5dp">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#616161" />
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/today_thanks"
-            android:layout_width="360dp"
-            android:layout_height="170dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:background="#E2EDF6"
-            android:isScrollContainer="true"
-            android:scrollbars="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/favourites"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/today_prayer" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/today_prayer"
+                android:layout_width="360dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="3dp"
+                android:background="#E0EFF3"
+                android:isScrollContainer="true"
+                android:scrollbars="vertical">
 
 
-        <FrameLayout
-            android:id="@+id/favourites"
-            android:layout_width="0dp"
-            android:layout_height="170dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="26dp"
-            android:background="#D9D9D9"
-            android:isScrollContainer="true"
-            android:scrollbars="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/divider2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/today_thanks">
+            </androidx.recyclerview.widget.RecyclerView>
 
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </FrameLayout>
+            <FrameLayout
+                android:id="@+id/today_thanks"
+                android:layout_width="360dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#E2EDF6"
+                android:isScrollContainer="true"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/favourites"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/favourites"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="26dp"
+                android:background="#D9D9D9"
+                android:isScrollContainer="true"
+                android:scrollbars="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/today_thanks">
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     <com.google.android.material.navigation.NavigationView
@@ -231,8 +235,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
 
+        android:visibility="gone"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+        app:menu="@menu/activity_main_drawer" />
 
 
 
