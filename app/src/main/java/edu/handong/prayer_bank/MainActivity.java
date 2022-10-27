@@ -1,14 +1,17 @@
 package edu.handong.prayer_bank;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -35,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     //write
-    FrameLayout today_prayer;
+    FrameLayout today_prayer, today_thanks, favorites;
+    LinearLayout write_page;
     RecyclerView recyclerView;
     MemoAdapter memoAdapter;
+    private int REQUEST_TEST = 200;
 
 
     @Override
@@ -155,16 +160,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         //onCreate
-        //리사이클러뷰 세팅
-        /*
+
+        write_page = findViewById(R.id.write_page);
+
+        today_prayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater = (LayoutInflater)
+                        getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                inflater.inflate(R.layout.activity_write_prayer_topics, write_page, true);
+                today_prayer = write_page.findViewById(R.id.today_prayer);
+            }
+        });
+
+
+        //onCreate
+//리사이클러뷰 세팅
         LinearLayoutManager linearLayoutManager;
         recyclerView = findViewById(R.id.today_prayer);//리사이클러뷰 findView
         linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
-
-        memoAdapter = new MemoAdapter(MainActivity.this);
-        recyclerView.setLayoutManager(linearLayoutManager);//linearlayout 세팅
-        recyclerView.setAdapter(memoAdapter);//adapter 세팅
-
 
         //쉐어드 모든 키 벨류 가져오기
         SharedPreferences prefb =getSharedPreferences("memo_contain", MODE_PRIVATE);
@@ -195,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             memoAdapter.notifyDataSetChanged();
 
         }
-        */
+
 
     }
     @Override
@@ -210,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
-    /*
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -220,10 +234,10 @@ public class MainActivity extends AppCompatActivity {
                 // 전달 받은 값
                 Intent intent = getIntent();
                 String get_date = data.getStringExtra("date");
-                String get_title = data.getStringExtra("category");
-                String get_content = data.getStringExtra("prayer_topic");
+                String get_category = data.getStringExtra("category");
+                String get_prayer_topics = data.getStringExtra("prayer_topic");
                 // 리사이클러뷰 목록에 추가
-                memoAdapter.addItem(new MemoItem(get_date,get_title,get_content));
+                memoAdapter.addItem(new MemoItem(get_date,get_category,get_prayer_topics));
                 // 목록 갱신
                 memoAdapter.notifyDataSetChanged();
                 Toast.makeText(MainActivity.this, "작성 되었습니다", Toast.LENGTH_SHORT).show();
@@ -232,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-    }*/
+    }
 
 }
         checkBox1.setOnCheckedChangeListener((buttonView, isChecked) -> {

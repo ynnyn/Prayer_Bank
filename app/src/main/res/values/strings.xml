@@ -61,4 +61,7 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)</s
     <string name="plus">+</string>
     <string name="colon">:</string>
     <string name="thanks_of_the_day" />
+    <string name="see">view</string>
+    <string name="delete">delete</string>
+    <string name="revise">revise(수정)</string>
 </resources>
