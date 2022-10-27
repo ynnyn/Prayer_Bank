@@ -3,12 +3,12 @@ package edu.handong.prayer_bank;
 public class MemoItem {
     String date;
     String category;
-    String content;
+    String prayer_topic;
 
-    public MemoItem(String date, String category, String content) {
+    public MemoItem(String date, String category, String prayer_topic) {
         this.date = date;
         this.category = category;
-        this.content = content;
+        this.prayer_topic = prayer_topic;
     }
 
     public String getDate() {
@@ -28,10 +28,10 @@ public class MemoItem {
     }
 
     public String getContent() {
-        return content;
+        return prayer_topic;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContent(String prayer_topic) {
+        this.prayer_topic = prayer_topic;
     }
 }

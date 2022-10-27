@@ -7,9 +7,11 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -31,8 +33,13 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     boolean isDrawerOpend;
 
+
+    //write
+    FrameLayout today_prayer;
     RecyclerView recyclerView;
     MemoAdapter memoAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        drawer = (DrawerLayout) findViewById(R.id.category_drawer_view);
+        drawer = (DrawerLayout) findViewById(R.id.main_screen);
         toggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close){
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -149,8 +156,9 @@ public class MainActivity extends AppCompatActivity {
 
         //onCreate
         //리사이클러뷰 세팅
+        /*
         LinearLayoutManager linearLayoutManager;
-        recyclerView = findViewById(R.id.memo_rv);//리사이클러뷰 findView
+        recyclerView = findViewById(R.id.today_prayer);//리사이클러뷰 findView
         linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
 
         memoAdapter = new MemoAdapter(MainActivity.this);
@@ -171,14 +179,14 @@ public class MainActivity extends AppCompatActivity {
             String value = (String) it_val.next();
 
             // value 값은 다음과 같이 저장되어있다
-            // "{\"title\":\"hi title\",\"content\":\"hi content\"}"
+            // "{\"category\":\"hi category\",\"prayer_topic\":\"hi prayer_topic\"}"
             try {
                 // String으로 된 value를 JSONObject로 변환하여 key-value로 데이터 추출
                 JSONObject jsonObject = new JSONObject(value);
-                String title = (String) jsonObject.getString("category");
-                String content = (String) jsonObject.getString("content");
+                String category = (String) jsonObject.getString("category");
+                String prayer_topic = (String) jsonObject.getString("prayer_topic");
                 // 리사이클러뷰 어뎁터 addItem으로 목록 추가
-                memoAdapter.addItem(new MemoItem(key, category, content));
+                memoAdapter.addItem(new MemoItem(key, category, prayer_topic));
             } catch (JSONException e) {
 
             }
@@ -187,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
             memoAdapter.notifyDataSetChanged();
 
         }
-
+        */
 
     }
     @Override
@@ -202,9 +210,33 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    /*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_TEST) {
+            if (resultCode == RESULT_OK) {
+                // 전달 받은 값
+                Intent intent = getIntent();
+                String get_date = data.getStringExtra("date");
+                String get_title = data.getStringExtra("category");
+                String get_content = data.getStringExtra("prayer_topic");
+                // 리사이클러뷰 목록에 추가
+                memoAdapter.addItem(new MemoItem(get_date,get_title,get_content));
+                // 목록 갱신
+                memoAdapter.notifyDataSetChanged();
+                Toast.makeText(MainActivity.this, "작성 되었습니다", Toast.LENGTH_SHORT).show();
+            } else {   // RESULT_CANCEL
+                Toast.makeText(MainActivity.this, "저장 되지 않음", Toast.LENGTH_SHORT).show();
+            }
+
         }
-
-
-
+    }*/
 
 }
+
+
+
+
+

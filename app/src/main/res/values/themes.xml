@@ -14,6 +14,6 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="Button.Gray" parent="ThemeOverlay.AppCompat">
-        <item name="colorAccent">@android:color/#D9D9D9</item>
+        <item name="colorAccent">#D9D9D9</item>
     </style>
 </resources>
