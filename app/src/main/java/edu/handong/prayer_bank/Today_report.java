@@ -66,9 +66,7 @@ public class Today_report extends AppCompatActivity {
             }
         });
 
-        //multiline text 입력
-        EditText today_prayer = findViewById(R.id.todays_prayer);
-        String str = today_prayer.getText().toString();
+
 
         //left button 눌렀을 때
         //leftButton.setOnClickListener();

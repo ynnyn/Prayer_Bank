@@ -96,7 +96,7 @@ public class MyPage extends AppCompatActivity {
 
          }else{
              //알림 건축가 객체 생성
-             builder= new NotificationCompat.Builder(this, null);
+             builder= new NotificationCompat.Builder(this);
          }
 
 

@@ -24,7 +24,7 @@ public class Write_prayer_topics extends AppCompatActivity {
     TextView whenDate;
     //write prayer topics
     PreferenceManager pref;
-    String category;
+    EditText category;
     EditText write_pt;
     Button save_btn;
 
@@ -43,6 +43,10 @@ public class Write_prayer_topics extends AppCompatActivity {
         whenDate.setText(time); //현재 날짜로 설정
 
         //write down prayer topics
+        pref = new PreferenceManager();
+        save_btn = findViewById(R.id.save_btn);
+        //editText 할당
+        category = findViewById(R.id.editCategory);
         write_pt = findViewById(R.id.write_pt);
 
         save_btn.setOnClickListener(new View.OnClickListener() {
@@ -51,9 +55,10 @@ public class Write_prayer_topics extends AppCompatActivity {
                 // 저장 버튼을 눌러
                 // 작성한 editText를 저장
                 //category =
-                String prayer_topic = write_pt.getText().toString();
+                String edit_category = category.getText().toString();
+                String edit_pt = write_pt.getText().toString();
                 // String 값을 JSONObject로 변환하여 사용할 수 있도록 메모의 제목과 타이틀을 JSON 형식로 저장
-                String save_form = "{\"content\":\""+prayer_topic+"\"}";
+                String save_form = "{\"category\":\""+ edit_category + "\",content\":\""+edit_pt+"\"}";
 
                 // key값이 겹치지 않도록 현재 시간으로 부여
                 long now = System.currentTimeMillis();
@@ -61,7 +66,7 @@ public class Write_prayer_topics extends AppCompatActivity {
                 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 String getTime = simpleDate.format(mDate).toString();
 
-                Log.d("Write_prayer_topicsActivity","기도제목 : "+prayer_topic+", 현재시간 : "+getTime);
+                Log.d("Write_prayer_topicsActivity", "카테고리 : "+edit_category+", 기도제목 : "+edit_pt+", 현재시간 : "+getTime);
                 //PreferenceManager 클래스에서 저장에 관한 메소드를 관리
                 pref.setString(getApplication(),getTime,save_form);
 
@@ -69,12 +74,15 @@ public class Write_prayer_topics extends AppCompatActivity {
                 // Intent로 값을 MainActivity에 전달
                 Intent intent = new Intent();
                 intent.putExtra("date",getTime);
-                intent.putExtra("prayer_topic",prayer_topic);
+                intent.putExtra("category",edit_category);
+                intent.putExtra("prayer_topic",edit_pt);
                 setResult(RESULT_OK, intent);
                 finish();
 
             }
         });
+
+
 
 
 

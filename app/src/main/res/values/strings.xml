@@ -56,4 +56,8 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)</s
     <string name="prayer_bank">PRAYER BANK</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="musicbutton">musicbutton</string>
+    <string name="my_prayer_status">MY PRAYER STATUS</string>
+    <string name="plus">+</string>
+    <string name="colon">:</string>
 </resources>

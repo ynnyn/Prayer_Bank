@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+//import MemoItem;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Category_family#newInstance} factory method to
@@ -62,5 +64,5 @@ public class Category_family extends Fragment {
         return inflater.inflate(R.layout.fragment_category_family2, container, false);
     }
 
-    String
+    //setCategory('family');
 }
