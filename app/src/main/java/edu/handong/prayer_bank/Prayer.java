@@ -1,5 +1,6 @@
 package edu.handong.prayer_bank;
 
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Formatter;
 
-// 이거 되면 공통으로 쓸 수 있다.
 public class Prayer extends AppCompatActivity {
 
     LinearLayout timeCountSettingLV, timeCountLV;
@@ -23,7 +23,7 @@ public class Prayer extends AppCompatActivity {
     TextView hourTV, minuteTV, secondTV, finishTV;
     Button startBtn;
     int hour, minute, second;
-
+    Log.v("Test","This is the test message!");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
