@@ -17,7 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -94,15 +96,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem Item) {
                 int id=Item.getItemId();
-
+                FragmentManager manager = getSupportFragmentManager();
                 if(id==R.id.nav_me) {
-                    showToast("NavigationDrawer...me..");
+                    manager.beginTransaction().replace(R.id.activity_main_drawer, new Category_me());
                 } else if(id == R.id.nav_family) {
-                    showToast("NavigationDrawer...family..");
+                    manager.beginTransaction().replace(R.id.activity_main_drawer, new Category_family());
                 } else if(id == R.id.nav_friends) {
-                    showToast("NavigationDrawer...friends..");
+                    manager.beginTransaction().replace(R.id.activity_main_drawer, new Category_friends());
                 }
-
+                drawer.closeDrawer(GravityCompat.START);
                 return false;
             }
 
@@ -161,21 +163,22 @@ public class MainActivity extends AppCompatActivity {
 
         //onCreate
 
-        write_page = findViewById(R.id.write_page);
 
+        /*
+        write_page = findViewById(R.id.write_page);
         today_prayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater inflater = (LayoutInflater)
-                        getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                inflater.inflate(R.layout.activity_write_prayer_topics, write_page, true);
-                today_prayer = write_page.findViewById(R.id.today_prayer);
+                //버튼을 눌러 이동할 액티비티를 정해줌
+                Intent intent = new Intent(getApplicationContext(), Write_prayer_topics.class);
+                //startActivity(intent);
+                startActivityForResult(intent, REQUEST_TEST);
             }
         });
 
 
         //onCreate
-//리사이클러뷰 세팅
+        //리사이클러뷰 세팅
         LinearLayoutManager linearLayoutManager;
         recyclerView = findViewById(R.id.today_prayer);//리사이클러뷰 findView
         linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
@@ -245,8 +248,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "저장 되지 않음", Toast.LENGTH_SHORT).show();
             }
 
-        }
+        }*/
     }
+
+
 
 }
 

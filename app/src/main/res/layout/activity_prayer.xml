@@ -105,7 +105,6 @@
         android:id="@+id/divider7"
         android:layout_width="0dp"
         android:layout_height="3dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/prayButton"
@@ -117,23 +116,25 @@
         android:id="@+id/stop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/stop"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/divider7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2"
+        app:layout_constraintVertical_bias="0.08"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/start"
+        app:layout_constraintBottom_toTopOf="@+id/divider7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,32 +142,13 @@
         tools:ignore="TextContrastCheck" />
 
 
-    <ImageButton
-        android:id="@+id/musicButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="600dp"
-        android:adjustViewBounds="true"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/musicbutton"
-        android:maxHeight="50dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/divider7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/queue_music"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-
     <FrameLayout
         android:id="@+id/frameLayout2"
         android:layout_width="317dp"
         android:layout_height="366dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="41dp"
         android:background="#C1C0C0"
+        app:layout_constraintBottom_toTopOf="@+id/divider7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeAll">
@@ -178,8 +160,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="112dp">
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/timeCountLV"
@@ -304,7 +289,7 @@
             <TextView
                 android:id="@+id/finishTV"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="29dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black"

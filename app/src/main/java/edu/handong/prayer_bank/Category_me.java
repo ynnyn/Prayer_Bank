@@ -61,4 +61,7 @@ public class Category_me extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_category_me2, container, false);
     }
+
+
+
 }
