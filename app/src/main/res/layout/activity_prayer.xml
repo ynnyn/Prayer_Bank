@@ -157,7 +157,7 @@
 
     <LinearLayout
         android:id="@+id/timeAll"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
@@ -172,9 +172,10 @@
             android:layout_height="match_parent"
             android:layout_marginTop="52dp"
             android:layout_marginBottom="30dp"
+            android:visibility="gone"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/hourTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -193,7 +194,7 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/minuteTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -212,7 +213,7 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/secondTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -226,7 +227,7 @@
 
         <LinearLayout
             android:id="@+id/timeCountSettingLV"
-            android:layout_width="484dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -247,7 +248,7 @@
                 android:gravity="center"
                 android:text="@string/colon"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/minuteET"
@@ -293,7 +294,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="30sp" />
         </LinearLayout>
     </LinearLayout>
 

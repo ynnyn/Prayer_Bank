@@ -1,5 +1,6 @@
 package edu.handong.prayer_bank;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -57,17 +58,17 @@ public class MainActivity extends AppCompatActivity {
         buttonOpen.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v){
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.category_drawer_view);
+                drawer = (DrawerLayout) findViewById(R.id.main_screen);
                 if (drawer.isDrawerOpen(Gravity.LEFT)){
                     drawer.closeDrawer(Gravity.LEFT);
                 }
             }
         });
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //etDisplayShowTitleEnabled(false);
 
-        drawer = (DrawerLayout) findViewById(R.id.main_screen);
-        toggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close){
+        //drawer = (DrawerLayout) findViewById(R.id.main_screen);
+        /*toggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close){
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -83,13 +84,14 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return super.onOptionsItemSelected(item);
             }
-        };
+        };*/
         drawer.addDrawerListener(toggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toggle.syncState();
 
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         NavigationView navigationView = (NavigationView)
-                findViewById(R.id.category_drawer_view);
+                findViewById(R.id.activity_main_drawer);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @SuppressWarnings("StatementWithEmptyBody")
