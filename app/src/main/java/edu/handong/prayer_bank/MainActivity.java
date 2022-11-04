@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         buttonOpen.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v){
+                // Drawer를 onlcik 안에 만들어서 그렇다!
                 drawer = (DrawerLayout) findViewById(R.id.main_screen);
                 if (drawer.isDrawerOpen(Gravity.LEFT)){
                     drawer.closeDrawer(Gravity.LEFT);
@@ -67,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         //etDisplayShowTitleEnabled(false);
 
-        //drawer = (DrawerLayout) findViewById(R.id.main_screen);
-        /*toggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close){
+        drawer = (DrawerLayout) findViewById(R.id.main_screen);
+        toggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close){
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -84,14 +85,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return super.onOptionsItemSelected(item);
             }
-        };*/
+        };
         drawer.addDrawerListener(toggle);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toggle.syncState();
+        // no pointer exception handler를 만들어야함.
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         NavigationView navigationView = (NavigationView)
-                findViewById(R.id.activity_main_drawer);
+                findViewById(R.id.activity_navigation);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @SuppressWarnings("StatementWithEmptyBody")
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
 
         //make the main button
         ImageButton praybutton = findViewById(R.id.prayButton);

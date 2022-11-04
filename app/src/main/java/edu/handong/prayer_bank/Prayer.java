@@ -19,8 +19,6 @@ import java.util.Formatter;
 
 public class Prayer extends AppCompatActivity {
 
-
-
     LinearLayout timeAll, timeCountSettingLV, timeCountLV;
     EditText hourET, minuteET, secondET;
     TextView hourTV, minuteTV, secondTV, finishTV;
@@ -115,7 +113,7 @@ public class Prayer extends AppCompatActivity {
                 hour = Integer.parseInt(hourET.getText().toString());
                 minute = Integer.parseInt(minuteET.getText().toString());
                 second = Integer.parseInt(secondET.getText().toString());
-
+                // input값을 선택하지 않으면 start버튼이 작동하지 않도록 하기
                 Timer timer = new Timer();
                 TimerTask timerTask = new TimerTask() {
                     @Override
