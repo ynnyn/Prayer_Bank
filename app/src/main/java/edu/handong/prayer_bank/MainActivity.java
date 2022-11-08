@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
             }
         };
-        drawer.addDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);  //error
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toggle.syncState();
         // no pointer exception handler를 만들어야함.

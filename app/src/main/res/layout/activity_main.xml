@@ -184,7 +184,7 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TODAY'S PRAYER"
+                android:text="@string/todays_prayer"
                 android:textColor="#616161"
                 android:translationX="15dp"
                 android:translationY="10dp"
@@ -245,7 +245,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="THANKS OF THE DAY"
+                android:text="@string/thanks_of_day"
                 android:textColor="#616161"
                 android:translationX="15dp"
                 android:translationY="10dp"
@@ -281,7 +281,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Write down here"/>
+                    android:hint="@string/write_down"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </FrameLayout>
@@ -305,7 +305,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FAVOURITES"
+                android:text="@string/faivorites"
                 android:textColor="#616161"
                 android:translationX="15dp"
                 android:translationY="10dp" />
@@ -317,7 +317,8 @@
                 android:background="#00000000"
                 android:scaleType="centerInside"
                 android:translationY="10dp"
-                app:srcCompat="@drawable/star_circle" />
+                app:srcCompat="@drawable/star_circle"
+                android:contentDescription="@string/faivorites" />
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="147dp"
