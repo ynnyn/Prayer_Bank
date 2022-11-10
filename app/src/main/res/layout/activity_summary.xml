@@ -165,17 +165,18 @@
         android:layout_width="170dp"
         android:layout_height="144dp"
         android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/chart_Layout"
+        app:layout_constraintBottom_toTopOf="@id/divider8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/frameLayout"
-        app:layout_constraintBaseline_toTopOf="@id/divider8"
         tools:layout_editor_absoluteY="498dp">
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:contentDescription="@string/smile_jesus"
+            android:visibility="gone"
             app:srcCompat="@drawable/img_1006"
             tools:ignore="ContentDescription" />
 
