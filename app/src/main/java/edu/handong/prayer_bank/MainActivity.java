@@ -122,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton summarybutton = findViewById(R.id.summaryButton);
         ImageButton calenderbutton = findViewById(R.id.calendarButton);
         ImageButton homebutton = findViewById(R.id.homeButton);
+        ImageButton addPrayerButton = findViewById(R.id.plus);
+
 
         //screen change
         //main -> pray screen
@@ -162,6 +164,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent home = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(home);
+            }
+        });
+        addPrayerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addPrayer = new Intent(MainActivity.this, Write_prayer_topics.class);
+                startActivity(addPrayer);
+
             }
         });
 
@@ -259,7 +269,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
+        checkBox1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        editText1.setEnabled(isChecked);
+        });
+        checkBox2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        editText2.setEnabled(isChecked);
+        });
+        checkBox3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        editText3.setEnabled(isChecked);
+        });
 
 
 

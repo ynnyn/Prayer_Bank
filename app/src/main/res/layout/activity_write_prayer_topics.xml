@@ -17,9 +17,9 @@
         android:id="@+id/when_date"
         android:layout_width="69dp"
         android:layout_height="16dp"
-        android:gravity="start|top"
         android:layout_marginStart="@dimen/write_rl"
         android:layout_marginTop="@dimen/write_tb"
+        android:gravity="start|top"
         android:text="@string/when_date"
         android:textSize="15sp" />
 
