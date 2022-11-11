@@ -9,11 +9,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 public class MyPage extends AppCompatActivity {
 
+    private PopupWindow goalPopup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +73,30 @@ public class MyPage extends AppCompatActivity {
                 startActivity(home);
             }
         });
+
+        ImageButton goal = (ImageButton)  findViewById(R.id.goalButton);
+        goal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View goal_popupView = getLayoutInflater().inflate(R.layout.popup_goal, null);
+                goalPopup = new PopupWindow(goal_popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                //popupView 에서 (LinearLayout 을 사용) 레이아웃이 둘러싸고 있는 컨텐츠의 크기 만큼 팝업 크기를 지정
+                goalPopup.setFocusable(true);
+                // 외부 영역 선택시 Popup 종료
+                goalPopup.showAtLocation(goal_popupView, Gravity.CENTER, 0, 0);
+
+                Button ok = (Button) goal_popupView.findViewById(R.id.goal_ok);
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+
+
 
 
     }
