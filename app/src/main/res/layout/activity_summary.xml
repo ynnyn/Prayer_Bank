@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Summary">
 
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="15dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/prayButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -65,7 +77,7 @@
         android:layout_marginBottom="120dp"
         android:text="@string/goal"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/chart_Layout"
         app:layout_constraintStart_toEndOf="@+id/progressBar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,8 +88,8 @@
         android:layout_marginBottom="8dp"
         android:text="@string/this_week"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/chart_Layout"
+        app:layout_constraintStart_toStartOf="@+id/chart_Layout"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
@@ -85,10 +97,11 @@
         android:id="@+id/frameLayout"
         android:layout_width="200dp"
         android:layout_height="0dp"
+        android:layout_marginStart="25dp"
         android:layout_marginBottom="89dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/chart_Layout">
 
         <ImageView
             android:id="@+id/imageView"
@@ -96,10 +109,11 @@
             android:layout_height="111dp"
             android:layout_gravity="center"
             android:contentDescription="@string/round_square"
-            app:srcCompat="@drawable/round_square" />
+            app:srcCompat="@drawable/round_square"
+            tools:ignore="ContentDescription,HardcodedText"/>
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/good_text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -110,30 +124,32 @@
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/motivate_text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="4dp"
+            android:layout_marginStart="4dp"
+            android:padding="5dp"
             android:textSize="11sp"
             android:text="@string/motivate_text1"
             android:textColor="@color/black"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:ignore="HardcodedText,SmallSp, SpUsage" />
 
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/xlinearLayout"
-        android:layout_width="0dp"
+        android:id="@+id/chart_Layout"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="0dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="235dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" >
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <com.github.mikephil.charting.charts.BarChart
             android:layout_width="match_parent"
@@ -145,162 +161,13 @@
     </LinearLayout>
 
 
-
-
-
     <LinearLayout
         android:layout_width="170dp"
         android:layout_height="144dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@+id/frameLayout"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout">
-
-        <ImageView
-            android:id="@+id/x_imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/smile_jesus"
-            android:visibility="gone"
-            app:srcCompat="@drawable/img_1006" />
-
-        <ImageView
-            android:id="@+id/x_imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/sad_jesus"
-            android:visibility="visible"
-            app:srcCompat="@drawable/img_1007" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/x_textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
-        android:text="@string/summary"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/x_textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="@string/my_prayer_status"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/chart_Layout"
+        app:layout_constraintBottom_toTopOf="@id/divider8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-
-    <TextView
-        android:id="@+id/x_textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="162dp"
-        android:layout_marginBottom="93dp"
-        android:text="@string/today"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/x_textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="162dp"
-        android:layout_marginBottom="120dp"
-        android:text="Goal"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/x_textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/this_week"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-
-    <FrameLayout
-        android:id="@+id/x_frameLayout"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="89dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <ImageView
-            android:id="@+id/x_imageView"
-            android:layout_width="200dp"
-            android:layout_height="111dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/round_square"
-            android:contentDescription="TODO"
-            tools:ignore="ContentDescription,HardcodedText" />
-
-        <TextView
-            android:id="@+id/x_textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="10sp"
-            android:text="@string/good_text1"
-            android:textColor="@color/black"
-            android:visibility="invisible"
-            tools:ignore="SmallSp" />
-
-        <TextView
-            android:id="@+id/x_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="10dp"
-            android:text="Come on, you can reach the goal!\n \nWatch and pray so that you will not fall
-into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
-            android:textColor="@color/black"
-            android:visibility="visible"
-            tools:ignore="HardcodedText,SpUsage" />
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="235dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" >
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="170dp"
-        android:layout_height="144dp"
-        android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/frameLayout"
         tools:layout_editor_absoluteY="498dp">
 
@@ -308,6 +175,7 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
             android:id="@+id/imageView3"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/smile_jesus"
             android:visibility="gone"
             app:srcCompat="@drawable/img_1006"
             tools:ignore="ContentDescription" />
@@ -316,11 +184,13 @@ into temptation. The spirit is willing, but the body is weak. (Matthew 26:41)"
             android:id="@+id/imageView4"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/sad_jesus"
             android:visibility="visible"
             app:srcCompat="@drawable/img_1007"
             tools:ignore="ContentDescription" />
 
     </LinearLayout>
+
 
     <ImageButton
         android:id="@+id/prayButton"

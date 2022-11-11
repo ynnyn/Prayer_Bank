@@ -105,7 +105,6 @@
         android:id="@+id/divider7"
         android:layout_width="0dp"
         android:layout_height="3dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/prayButton"
@@ -117,69 +116,38 @@
         android:id="@+id/stop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/stop"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/divider7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/start"
+        app:layout_constraintBottom_toTopOf="@+id/divider7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2"
         tools:ignore="TextContrastCheck" />
 
 
-    <ImageButton
-        android:id="@+id/musicButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="600dp"
-        android:adjustViewBounds="true"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/musicbutton"
-        android:maxHeight="50dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/divider7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/queue_music"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-
-    <FrameLayout
-        android:id="@+id/frameLayout2"
-        android:layout_width="317dp"
-        android:layout_height="366dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
-        android:background="#C1C0C0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeAll">
-
-    </FrameLayout>
-
     <LinearLayout
         android:id="@+id/timeAll"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_gravity = "center"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="112dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/timeCountLV"
@@ -187,9 +155,10 @@
             android:layout_height="match_parent"
             android:layout_marginTop="52dp"
             android:layout_marginBottom="30dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-            <EditText
+            <TextView
                 android:id="@+id/hourTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -208,7 +177,7 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/minuteTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -227,7 +196,7 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/secondTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -241,9 +210,10 @@
 
         <LinearLayout
             android:id="@+id/timeCountSettingLV"
-            android:layout_width="484dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <EditText
                 android:id="@+id/hourET"
@@ -262,7 +232,7 @@
                 android:gravity="center"
                 android:text="@string/colon"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/minuteET"
@@ -304,11 +274,11 @@
             <TextView
                 android:id="@+id/finishTV"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="29dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="30sp" />
         </LinearLayout>
     </LinearLayout>
 
