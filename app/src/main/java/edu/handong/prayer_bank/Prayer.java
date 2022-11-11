@@ -20,7 +20,6 @@ import java.util.Formatter;
 public class Prayer extends AppCompatActivity {
 
     LinearLayout timeAll, timeCountSettingLV, timeCountLV;
-    EditText hourET, minuteET, secondET;
     TextView hourTV, minuteTV, secondTV, finishTV;
     Button startBtn, stopBtn;
     int hour, minute, second;
@@ -80,17 +79,14 @@ public class Prayer extends AppCompatActivity {
             }
         });
 
+        // User Input from Mypage
+        int goal_h,goal_min,goal_sec;
+        Intent goalIntent = getIntent();
+        goal_h = goalIntent.getIntExtra("g_hour", 0);
+        goal_min = goalIntent.getIntExtra("g_min", 0);
+        goal_sec = goalIntent.getIntExtra("g_sec", 0);
 
-        // commit용 의미 없는 코드
-        timeAll =  findViewById(R.id.timeAll);
-        timeCountSettingLV = findViewById(R.id.timeCountSettingLV);
-//        timeCountSettingLV = findViewById(R.id.timeCountSettingLV);
-        timeCountLV = findViewById(R.id.timeCountLV);
-        // User Input
-        hourET = findViewById(R.id.hourET);
-        minuteET = findViewById(R.id.minuteET);
-        secondET = findViewById(R.id.secondET);
-        // Show left time
+        // Show accumulated time
         hourTV = findViewById(R.id.hourTV);
         minuteTV = findViewById(R.id.minuteTV);
         secondTV = findViewById(R.id.secondTV);
@@ -98,21 +94,30 @@ public class Prayer extends AppCompatActivity {
 
         startBtn = findViewById(R.id.start_button);
         stopBtn = findViewById(R.id.stop_button);
-        // ...
+
+        //intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달
+        Intent timeIntent = new Intent(Prayer.this, Summary.class);
+        timeIntent.putExtra("_hour", hour); //'_hour'라는 이름으로 hour 전달
+        timeIntent.putExtra("_min", minute); // '_min'라는 이름으로 minute 전달
+        timeIntent.putExtra("_sec", second); //'_sec'라는 이름으로 sec 전달
+        stopBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(timeIntent);
+            }
+        });
+
         // 시작버튼 이벤트 1처리
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timeCountSettingLV.setVisibility(View.GONE);
-                timeCountLV.setVisibility(View.VISIBLE);
+                // Setting page에서 설정함에 따라 숨기기 기능이 불필요
+                //timeCountSettingLV.setVisibility(View.GONE);
+                //timeCountLV.setVisibility(View.VISIBLE);
 
-                hourTV.setText(hourET.getText().toString());
-                minuteTV.setText(minuteET.getText().toString());
-                secondTV.setText(secondET.getText().toString());
-
-                hour = Integer.parseInt(hourET.getText().toString());
-                minute = Integer.parseInt(minuteET.getText().toString());
-                second = Integer.parseInt(secondET.getText().toString());
+                hour=0;
+                minute=0;
+                second=0;
                 // input값을 선택하지 않으면 start버튼이 작동하지 않도록 하기
                 Timer timer = new Timer();
                 TimerTask timerTask = new TimerTask() {
@@ -120,26 +125,23 @@ public class Prayer extends AppCompatActivity {
                     public void run() {
                         // 반복실행할 구문
 
-                        // 0초 이상이면
-                        if(second != 0) {
-                            //1초씩 감소
-                            second--;
-
-                            // 0분 이상이면
-                        } else if(minute != 0) {
-                            // 1분 = 60초
-                            second = 60;
-                            second--;
-                            minute--;
-
-                            // 0시간 이상이면
-                        } else if(hour != 0) {
-                            // 1시간 = 60분
-                            second = 60;
-                            minute = 60;
-                            second--;
-                            minute--;
-                            hour--;
+                        // 처음시작
+                        if(second < 59) {
+                            //1초씩 증가
+                            second++;
+                        }
+                        // 59초인 경우 분 증가
+                        else if(minute < 59) {
+                            // 분을 1증가하고 초를 0으로 초기화
+                            second = 0;
+                            minute++;
+                        }
+                        // 59분 59초인 상황
+                        else{
+                            // 1시간을 추가하고 초와 분을 0으로 초기화
+                            hour++;
+                            second = 0;
+                            minute = 0;
                         }
 
                         //시, 분, 초가 10이하(한자리수) 라면
@@ -148,7 +150,6 @@ public class Prayer extends AppCompatActivity {
                             secondTV.setText(String.format("%02d",second));
                         } else {
                             secondTV.setText(String.format("%d",second));
-//                            minuteTV.setText(Integer.toString(second));
                         }
 
                         if(minute <= 9){
@@ -163,10 +164,10 @@ public class Prayer extends AppCompatActivity {
                             hourTV.setText(Integer.toString(hour));
                         }
 
-                        // 시분초가 다 0이라면 toast를 띄우고 타이머를 종료한다..
-                        if(hour == 0 && minute == 0 && second == 0) {
-                            timer.cancel();//타이머 종료
-                            finishTV.setText("타이머가 종료되었습니다.");
+                        // 시분초가 다 goal과 같다면 toast를 띄우고 스탑워치를 종료한다..
+                        if(hour == goal_h && minute == goal_min && second == goal_sec) {
+                            timer.cancel();//스탑워치 종료
+                            finishTV.setText("목표를 달성했습니다.");
                         }
                     }
                 };

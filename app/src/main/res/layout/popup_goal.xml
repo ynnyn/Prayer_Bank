@@ -1,26 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="300dp"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:background= "#00F5F5F5">
+    android:background= "#F5F5F5">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/set_alarm"
-        android:layout_gravity="top"/>
+        android:text="@string/set_goal"
+        android:orientation="vertical"
+        android:layout_gravity="center"/>
 
+    <LinearLayout
+        android:id="@+id/timeCountSettingLV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
 
+        <EditText
+            android:id="@+id/hourET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="00"
+            android:inputType="number"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/minuteET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="00"
+            android:inputType="number"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/colon"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/secondET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="00"
+            android:inputType="number"
+            android:textSize="24sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/goal_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
-        android:layout_gravity="bottom"
-        android:textSize="11sp"/>
+        android:layout_gravity="center"
+        android:textSize="11sp" />
 
 
 </LinearLayout>

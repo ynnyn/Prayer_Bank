@@ -156,7 +156,7 @@
             android:layout_marginTop="52dp"
             android:layout_marginBottom="30dp"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/hourTV"
@@ -208,62 +208,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/timeCountSettingLV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="visible">
 
-            <EditText
-                android:id="@+id/hourET"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="00"
-                android:inputType="number"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/colon"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <EditText
-                android:id="@+id/minuteET"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="00"
-                android:inputType="number"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/colon"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <EditText
-                android:id="@+id/secondET"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="00"
-                android:inputType="number"
-                android:textSize="24sp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/timeCountText"

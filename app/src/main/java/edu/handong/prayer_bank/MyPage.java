@@ -12,13 +12,15 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
 public class MyPage extends AppCompatActivity {
-
+    // TextEdit variables
+    EditText goalHour, goalMin, goalSec;
     private PopupWindow goalPopup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +87,27 @@ public class MyPage extends AppCompatActivity {
                 // 외부 영역 선택시 Popup 종료
                 goalPopup.showAtLocation(goal_popupView, Gravity.CENTER, 0, 0);
 
+                //intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달
+                Intent goalIntent = new Intent(MyPage.this, Prayer.class);
+                // TextView로 받기
+//                goalHour = (EditText)findViewById(R.id.hourET);
+//                goalMin = (EditText)findViewById(R.id.minuteET);
+//                goalSec = (EditText)findViewById(R.id.secondET);
+//
+//                goalHour = Integer.parseInt(hourET.getText().toString());
+//                minute = Integer.parseInt(minuteET.getText().toString());
+//                second = Integer.parseInt(secondET.getText().toString());
+//
+//                goalIntent.putExtra("g_hour", goalHour); //'g_hour'라는 이름으로 hour 전달
+//                goalIntent.putExtra("g_min", goalMin); // 'g_min'라는 이름으로 minute 전달
+//                goalIntent.putExtra("g_sec", goalSec); //'g_sec'라는 이름으로 sec 전달
+
                 Button ok = (Button) goal_popupView.findViewById(R.id.goal_ok);
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+                        startActivity(goalIntent);
                     }
                 });
             }

@@ -269,15 +269,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-        checkBox1.setOnCheckedChangeListener((buttonView, isChecked) -> {
-        editText1.setEnabled(isChecked);
-        });
-        checkBox2.setOnCheckedChangeListener((buttonView, isChecked) -> {
-        editText2.setEnabled(isChecked);
-        });
-        checkBox3.setOnCheckedChangeListener((buttonView, isChecked) -> {
-        editText3.setEnabled(isChecked);
-        });
+//        checkBox1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//        editText1.setEnabled(isChecked);
+//        });
+//        checkBox2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//        editText2.setEnabled(isChecked);
+//        });
+//        checkBox3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//        editText3.setEnabled(isChecked);
+//        });
 
 
 

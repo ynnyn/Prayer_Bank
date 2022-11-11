@@ -39,6 +39,13 @@ public class Summary extends AppCompatActivity {
         ImageButton calenderbutton = findViewById(R.id.calendarButton);
         ImageButton homebutton = findViewById(R.id.homeButton);
 
+        // Pryer 페이지에서 실제로 기도한 시간을 전달받는다.
+        int pray_hour,pray_min,pray_sec;
+        Intent timeIntent = getIntent();
+        pray_hour = timeIntent.getIntExtra("_hour", 0);
+        pray_min = timeIntent.getIntExtra("_min", 0);
+        pray_sec = timeIntent.getIntExtra("_sec", 0);
+
         //screen change
         //summary -> pray screen
         praybutton.setOnClickListener(new View.OnClickListener() {
