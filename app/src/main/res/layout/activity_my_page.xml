@@ -189,8 +189,8 @@
 
     <Button
         android:id="@+id/editButton"
-        android:layout_width="52dp"
-        android:layout_height="34dp"
+        android:layout_width="59dp"
+        android:layout_height="41dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="30dp"
         android:text="@string/edit"
@@ -232,26 +232,11 @@
         android:layout_width="350dp"
         android:layout_height="1dp"
         android:layout_marginTop="11dp"
-        android:layout_marginBottom="15dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/goalButton" />
-
-    <View
-        android:id="@+id/divider6"
-        android:layout_width="350dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="58dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/divider2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsButton" />
 
     <TextView
         android:id="@+id/textView9"
@@ -281,19 +266,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="253dp"
-        android:layout_marginBottom="21dp"
-        android:text="@string/settings"
-        app:layout_constraintBottom_toTopOf="@+id/divider6"
-        app:layout_constraintEnd_toStartOf="@+id/settingsButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+    /*
 
 
     <ImageButton
@@ -329,23 +302,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/divider4"
         app:srcCompat="@drawable/near_me"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <ImageButton
-        android:id="@+id/settingsButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="30dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#03FFFFFF"
-        android:contentDescription="@string/settingsbutton"
-        android:maxHeight="30dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/divider6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/divider5"
-        app:srcCompat="@drawable/settings"
         tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
