@@ -46,6 +46,13 @@ public class Summary extends AppCompatActivity {
         pray_min = timeIntent.getIntExtra("_min", 0);
         pray_sec = timeIntent.getIntExtra("_sec", 0);
 
+        // User Input from Mypage
+        int goal_h,goal_min,goal_sec;
+        Intent goalIntent = getIntent();
+        goal_h = goalIntent.getIntExtra("g_hour", 0);
+        goal_min = goalIntent.getIntExtra("g_min", 0);
+        goal_sec = goalIntent.getIntExtra("g_sec", 0);
+
         //screen change
         //summary -> pray screen
         praybutton.setOnClickListener(new View.OnClickListener() {

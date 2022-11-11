@@ -20,7 +20,8 @@ import android.widget.Toast;
 
 public class MyPage extends AppCompatActivity {
     // TextEdit variables
-    EditText goalHour, goalMin, goalSec;
+    EditText hourET, minuteET, secondET;
+    int goalHour, goalMin, goalSec;
     private PopupWindow goalPopup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,19 +89,19 @@ public class MyPage extends AppCompatActivity {
                 goalPopup.showAtLocation(goal_popupView, Gravity.CENTER, 0, 0);
 
                 //intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달
-                Intent goalIntent = new Intent(MyPage.this, Prayer.class);
+                Intent goalIntent = new Intent(MyPage.this, Summary.class);
                 // TextView로 받기
-//                goalHour = (EditText)findViewById(R.id.hourET);
-//                goalMin = (EditText)findViewById(R.id.minuteET);
-//                goalSec = (EditText)findViewById(R.id.secondET);
-//
-//                goalHour = Integer.parseInt(hourET.getText().toString());
-//                minute = Integer.parseInt(minuteET.getText().toString());
-//                second = Integer.parseInt(secondET.getText().toString());
-//
-//                goalIntent.putExtra("g_hour", goalHour); //'g_hour'라는 이름으로 hour 전달
-//                goalIntent.putExtra("g_min", goalMin); // 'g_min'라는 이름으로 minute 전달
-//                goalIntent.putExtra("g_sec", goalSec); //'g_sec'라는 이름으로 sec 전달
+                hourET = (EditText)findViewById(R.id.hourET);
+                minuteET = (EditText)findViewById(R.id.minuteET);
+                secondET = (EditText)findViewById(R.id.secondET);
+
+                goalHour = Integer.parseInt(hourET.getText().toString());
+                goalMin = Integer.parseInt(minuteET.getText().toString());
+                goalSec = Integer.parseInt(secondET.getText().toString());
+
+                goalIntent.putExtra("g_hour", goalHour); //'g_hour'라는 이름으로 hour 전달
+                goalIntent.putExtra("g_min", goalMin); // 'g_min'라는 이름으로 minute 전달
+                goalIntent.putExtra("g_sec", goalSec); //'g_sec'라는 이름으로 sec 전달
 
                 Button ok = (Button) goal_popupView.findViewById(R.id.goal_ok);
                 ok.setOnClickListener(new View.OnClickListener() {

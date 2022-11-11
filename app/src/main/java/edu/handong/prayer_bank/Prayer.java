@@ -79,13 +79,6 @@ public class Prayer extends AppCompatActivity {
             }
         });
 
-        // User Input from Mypage
-        int goal_h,goal_min,goal_sec;
-        Intent goalIntent = getIntent();
-        goal_h = goalIntent.getIntExtra("g_hour", 0);
-        goal_min = goalIntent.getIntExtra("g_min", 0);
-        goal_sec = goalIntent.getIntExtra("g_sec", 0);
-
         // Show accumulated time
         hourTV = findViewById(R.id.hourTV);
         minuteTV = findViewById(R.id.minuteTV);
@@ -164,11 +157,11 @@ public class Prayer extends AppCompatActivity {
                             hourTV.setText(Integer.toString(hour));
                         }
 
-                        // 시분초가 다 goal과 같다면 toast를 띄우고 스탑워치를 종료한다..
-                        if(hour == goal_h && minute == goal_min && second == goal_sec) {
-                            timer.cancel();//스탑워치 종료
-                            finishTV.setText("목표를 달성했습니다.");
-                        }
+//                        // 시분초가 다 goal과 같다면 toast를 띄우고 스탑워치를 종료한다..
+//                        if(hour == goal_h && minute == goal_min && second == goal_sec) {
+//                            timer.cancel();//스탑워치 종료
+//                            finishTV.setText("목표를 달성했습니다.");
+//                        }
                     }
                 };
 
