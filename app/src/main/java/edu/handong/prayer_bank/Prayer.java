@@ -169,5 +169,7 @@ public class Prayer extends AppCompatActivity {
                 timer.schedule(timerTask, 0, 1000); //Timer 실행
             }
         });
+
+
     }
 }

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         buttonOpen.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v){
-                // Drawer를 onlcik 안에 만들어서 그렇다!
+                // Drawer를 onlcilk 안에 만들어서 그렇다!
                 drawer = (DrawerLayout) findViewById(R.id.main_screen);
                 if (drawer.isDrawerOpen(Gravity.LEFT)){
                     drawer.closeDrawer(Gravity.LEFT);
