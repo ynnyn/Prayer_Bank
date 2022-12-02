@@ -21,6 +21,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 
@@ -194,7 +195,7 @@ public class Summary extends AppCompatActivity {
             labels.add((String) labelList.get(i));
         }
 
-        /*
+
         BarData data = new BarData(dependents); //라이브러리 v3.x 사용하면 에러 발생함
         dependents.setColors(ColorTemplate.LIBERTY_COLORS);
 
@@ -202,19 +203,17 @@ public class Summary extends AppCompatActivity {
 
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                return Date.get((int)value);
+                return Float.toString(value);
             }
 
-            // we don't draw numbers, so no decimal digits needed
-            @Override
-            public int getDecimalDigits() {  return 0; }
+
         };
 
         XAxis xAxis = barChart.getXAxis();
         xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
-        xAxis.setValueFormatter(formatter);
+        xAxis.setValueFormatter((ValueFormatter) formatter);
 
-        */
+
 
         //barChart.setData(data);
         barChart.animateXY(1000, 1000);
