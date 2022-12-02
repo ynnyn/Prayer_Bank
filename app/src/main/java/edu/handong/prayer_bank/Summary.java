@@ -14,15 +14,18 @@ import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Summary extends AppCompatActivity {
 
@@ -109,7 +112,6 @@ public class Summary extends AppCompatActivity {
 
         //Progress graph - 사용자의 개인 기도 시간 진행 보여주기
         progressbar = findViewById(R.id.progressBar);
-        int progress_time = 0;
 
         if (goal_time == 0){
             try {
@@ -122,11 +124,11 @@ public class Summary extends AppCompatActivity {
             if ((goal_time < pray_time)|(goal_time == pray_time)){
                 progressbar.setProgress(100);
             }else{
-
+                progressbar.setProgress((pray_time*100)/goal_time);
             }
 
         }
-        progressbar.setProgress(progress_time);
+
 
 
 
@@ -192,11 +194,27 @@ public class Summary extends AppCompatActivity {
             labels.add((String) labelList.get(i));
         }
 
-
-        //BarData data = new BarData(labels, dependents); //라이브러리 v3.x 사용하면 에러 발생함
+        /*
+        BarData data = new BarData(dependents); //라이브러리 v3.x 사용하면 에러 발생함
         dependents.setColors(ColorTemplate.LIBERTY_COLORS);
 
+        IAxisValueFormatter formatter = new IAxisValueFormatter() {
 
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return Date.get((int)value);
+            }
+
+            // we don't draw numbers, so no decimal digits needed
+            @Override
+            public int getDecimalDigits() {  return 0; }
+        };
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
+        xAxis.setValueFormatter(formatter);
+
+        */
 
         //barChart.setData(data);
         barChart.animateXY(1000, 1000);
