@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -94,7 +95,7 @@ public class MyPage extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
-                        // intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달
+                        // intent를 사용하여 Summary페이지로 목표 기도 시간,분,초를 전달
                         Intent goalIntent = new Intent(MyPage.this, Summary.class);
                         // TextView로 받기
                         hourET = (EditText)findViewById(R.id.hourET);
@@ -109,6 +110,7 @@ public class MyPage extends AppCompatActivity {
                         goalIntent.putExtra("g_min", goalMin); // 'g_min'라는 이름으로 minute 전달
                         goalIntent.putExtra("g_sec", goalSec); //'g_sec'라는 이름으로 sec 전달
                         startActivity(goalIntent);
+
                     }
                 });
             }

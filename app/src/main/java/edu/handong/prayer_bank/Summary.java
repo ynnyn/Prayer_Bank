@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -33,7 +34,7 @@ import java.util.Date;
 
 public class Summary extends AppCompatActivity {
 
-    ArrayList<Integer> valLst = new ArrayList<>(); // ArrayList 선언
+    ArrayList<Float> valLst = new ArrayList<>(7); // ArrayList 선언
     ArrayList<String> labelLst = new ArrayList<>(); // ArrayList 선언
     //Bar chart
     private BarChart barChart;
@@ -56,20 +57,30 @@ public class Summary extends AppCompatActivity {
         ImageButton homebutton = findViewById(R.id.homeButton);
 
         // Prayer 페이지에서 실제로 기도한 시간을 전달받는다.
-        int pray_hour,pray_min,pray_sec, pray_time;
+        int pray_hour,pray_min,pray_sec;
+        float pray_time = 0;
         Intent timeIntent = getIntent();
         pray_hour = timeIntent.getIntExtra("_hour", 0);
         pray_min = timeIntent.getIntExtra("_min", 0);
         pray_sec = timeIntent.getIntExtra("_sec", 0);
-        pray_time = pray_hour*60 + pray_min + pray_sec/60;
+        pray_time += pray_hour*60 + pray_min + ((float)pray_sec)/60;
+
+        // Now Date, day of the week
+        String dateNow;
+        int weekNow;
+        dateNow = timeIntent.getStringExtra("_dateNow");
+        weekNow = timeIntent.getIntExtra("_weekNow", 0);
+
 
         // User Input from Mypage
-        int goal_h,goal_min,goal_sec, goal_time;
+        int goal_h,goal_min,goal_sec;
+        float goal_time = 0;
         Intent goalIntent = getIntent();
         goal_h = goalIntent.getIntExtra("g_hour", 0);
         goal_min = goalIntent.getIntExtra("g_min", 0);
         goal_sec = goalIntent.getIntExtra("g_sec", 0);
-        goal_time = goal_h*60 + goal_min + goal_sec/60;
+        goal_time += goal_h*60 + goal_min + ((float)goal_sec)/60;
+
 
         //screen change
         //summary -> pray screen
@@ -127,8 +138,10 @@ public class Summary extends AppCompatActivity {
         }else {
             if ((goal_time < pray_time)|(goal_time == pray_time)){
                 progressbar.setProgress(100);
+                Log.v("kimsehee_progress1","time"+pray_time);
             }else{
-                progressbar.setProgress((pray_time*100)/goal_time);
+                progressbar.setProgress((int) (pray_time/goal_time)*100);
+                Log.v("kimsehee_progress2","time"+pray_time);
             }
 
         }
@@ -143,13 +156,28 @@ public class Summary extends AppCompatActivity {
         labelLst.add("S");
 
         // valList
-        valLst.add(10);
-        valLst.add(20);
-        valLst.add(30);
-        valLst.add(40);
-        valLst.add(50);
-        valLst.add(60);
+
+        if (valLst.isEmpty()){
+            //int i = weekNow-1;
+            for (int i = 0; i < 7; i++){
+                if (i==weekNow-1) valLst.add(i, pray_time);
+                else valLst.add((float)5.5);
+            }
+
+        }else{
+            valLst.set(weekNow-1, pray_time);
+        }
+
+        /*
+        valLst.add((float)10.0);
+        valLst.add((float)15.1);
+        valLst.add((float)20.5);
+        valLst.add((float)5.7);
+        valLst.add((float)23.2);
+        valLst.add((float)30.33);
         valLst.add(pray_time);
+
+         */
 
 
         //Bar chart
@@ -180,12 +208,11 @@ public class Summary extends AppCompatActivity {
 
     }
 
-    private void setData(ArrayList<String> labelList, ArrayList<Integer> valList) {
+    private void setData(ArrayList<String> labelList, ArrayList<Float> valList) {
 
         ArrayList<BarEntry> values = new ArrayList<>();
         for (int i = 0; i < labelList.size(); i++){
-            int val = valList.get(i);    // error
-            String label = labelList.get(i);
+            float val = valList.get(i);    // error
             values.add(new BarEntry(i, val));
 
         }
@@ -212,6 +239,7 @@ public class Summary extends AppCompatActivity {
         setData(labelLst, valLst);
         barChart.invalidate();    //차트 업데이트
     }
+    /*
     public void graphInitSetting(){
         labelLst.add("S");
         labelLst.add("M");
@@ -230,6 +258,8 @@ public class Summary extends AppCompatActivity {
         BarChartGraph(labelLst, valLst);
 
     }
+
+     */
 
     /**
      * 그래프함수
@@ -253,8 +283,6 @@ public class Summary extends AppCompatActivity {
 /*
         BarData data = new BarData(dependents); //라이브러리 v3.x 사용하면 에러 발생함
         dependents.setColors(ColorTemplate.LIBERTY_COLORS);
-
-
 
         //barChart.setData(data);
         barChart.animateXY(1000, 1000);

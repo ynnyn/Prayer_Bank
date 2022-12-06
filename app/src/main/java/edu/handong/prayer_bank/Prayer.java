@@ -1,6 +1,7 @@
 package edu.handong.prayer_bank;
 
 import android.content.Intent;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -13,9 +14,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Formatter;
+import java.util.Calendar;
 
 public class Prayer extends AppCompatActivity {
 
@@ -23,6 +27,8 @@ public class Prayer extends AppCompatActivity {
     TextView hourTV, minuteTV, secondTV, finishTV;
     Button startBtn, stopBtn;
     int hour, minute, second;
+    String dateNow;
+    int weekNow;
 
 
     @Override
@@ -88,17 +94,6 @@ public class Prayer extends AppCompatActivity {
         startBtn = findViewById(R.id.start_button);
         stopBtn = findViewById(R.id.stop_button);
 
-        //intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달
-        Intent timeIntent = new Intent(Prayer.this, Summary.class);
-        timeIntent.putExtra("_hour", hour); //'_hour'라는 이름으로 hour 전달
-        timeIntent.putExtra("_min", minute); // '_min'라는 이름으로 minute 전달
-        timeIntent.putExtra("_sec", second); //'_sec'라는 이름으로 sec 전달
-        stopBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(timeIntent);
-            }
-        });
 
         // 시작버튼 이벤트 1처리
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -167,9 +162,48 @@ public class Prayer extends AppCompatActivity {
 
                 //타이머를 실행
                 timer.schedule(timerTask, 0, 1000); //Timer 실행
+                dateNow = getCurrentDate();
+                weekNow = getCurrentWeek();
+            }
+        });
+
+        //intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달Intent timeIntent = new Intent(Prayer.this, Summary.class);
+        Intent timeIntent = new Intent(Prayer.this, Summary.class);
+        stopBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timeIntent.putExtra("_hour", hour); //'_hour'라는 이름으로 hour 전달
+                timeIntent.putExtra("_min", minute); // '_min'라는 이름으로 minute 전달
+                timeIntent.putExtra("_sec", second); //'_sec'라는 이름으로 sec 전달
+                timeIntent.putExtra("_dateNow", dateNow); //'_dateNow'라는 이름으로 날짜 전달
+                timeIntent.putExtra("_weekNow", weekNow); //'_weekNow'라는 이름으로 요일 전달
+                // Console창에 time이라는 태그명으로 "time: pray_time"을 출력하라
+                Log.v("kimsehee1","time"+hour+minute+second);
+                startActivity(timeIntent);
             }
         });
 
 
+
+    }
+
+    public static String getCurrentDate() {
+        Date dateNow = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());  // 2022-12-06
+
+        return format.format(dateNow);
+    }
+
+    public static int getCurrentWeek() {
+        Date currentDate = new Date();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        int dayOfWeekNumber = calendar.get(Calendar.DAY_OF_WEEK);
+        // 1 : 일요일(S), 2: 월요일(M), 3: 화요일(T), 4: 수요일(W), 5: 목요일(T),
+        // 6: 금요일(F), 7: 토요일(S)
+
+        return dayOfWeekNumber;
     }
 }
