@@ -83,7 +83,7 @@ public class MyPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 View goal_popupView = getLayoutInflater().inflate(R.layout.popup_goal, null);
-                goalPopup = new PopupWindow(goal_popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                goalPopup = new PopupWindow(goal_popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 //popupView 에서 (LinearLayout 을 사용) 레이아웃이 둘러싸고 있는 컨텐츠의 크기 만큼 팝업 크기를 지정
                 goalPopup.setFocusable(true);
                 // 외부 영역 선택시 Popup 종료
