@@ -186,14 +186,14 @@ public class Prayer extends AppCompatActivity {
 
 
     }
-
+    // 현재 날짜 받는 함수
     public static String getCurrentDate() {
         Date dateNow = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());  // 2022-12-06
 
         return format.format(dateNow);
     }
-
+    // 현재 요일 받는 함수
     public static int getCurrentWeek() {
         Date currentDate = new Date();
 
