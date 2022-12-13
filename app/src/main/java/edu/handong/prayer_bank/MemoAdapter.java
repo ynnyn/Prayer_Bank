@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
+    //private final Activity mcontext;
     private Activity mcontext;
 
     // Memo 객체를 담을 MemoItem / 작성일/카테고리/기도제목 이 담긴다
@@ -50,18 +51,19 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
+
         return items.size() ;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    //@RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MemoAdapter.ViewHolder holder, final int position) {
         MemoItem item = items.get(position);
         // 메모 아이템 xml상에 메모 데이터가 적용되도록 세팅
         holder.setItem(item);
 
+        // 사실 필요 없음.
         // 메모 아이템 안에 있는 보기 버튼을 클릭하여 상세보기(ViewActivity)로 이동
-
         holder.view_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +92,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
             date = itemView.findViewById(R.id.date_contain);//아이템에 들어갈 텍스트
             category = itemView.findViewById(R.id.category_contain);
             prayer = itemView.findViewById(R.id.prayer_contain);//아이템에 들어갈 텍스트
+
             view_btn = itemView.findViewById(R.id.view_btn);
             delete_btn = itemView.findViewById(R.id.delete_btn);
         }

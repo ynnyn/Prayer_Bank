@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -13,6 +15,7 @@ public class View_pt extends AppCompatActivity {
     PreferenceManager pref;
     TextView view_category;
     TextView view_prayer_topic;
+    Button back_lst_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,14 @@ public class View_pt extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        finish();
+        back_lst_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
 
     }
 }

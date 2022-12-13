@@ -2,6 +2,7 @@ package edu.handong.prayer_bank;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout write_page;
     RecyclerView recyclerView;
     MemoAdapter memoAdapter;
+    ImageButton write_btn;
     private int REQUEST_TEST = 200;
 
 
@@ -157,11 +160,12 @@ public class MainActivity extends AppCompatActivity {
         addPrayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addPrayer = new Intent(MainActivity.this, Write_prayer_topics.class);
+                Intent addPrayer = new Intent(MainActivity.this, Prayer_topics.class);
                 startActivity(addPrayer);
 
             }
         });
+
 
 
         //onCreate

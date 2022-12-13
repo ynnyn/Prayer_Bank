@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 
@@ -26,7 +27,7 @@ public class Write_prayer_topics extends AppCompatActivity {
     PreferenceManager pref;
     EditText category;
     EditText write_pt;
-    Button save_btn;
+    Button save_btn, delete_btn, revise_btn;
 
     RecyclerView recyclerView;
     MemoAdapter memoAdapter;
@@ -35,7 +36,7 @@ public class Write_prayer_topics extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_prayer_topics);
-
+        pNow = System.currentTimeMillis();
         whenDate = (TextView) findViewById(R.id.when_date);
 
         pDate = new Date(pNow);
@@ -45,6 +46,8 @@ public class Write_prayer_topics extends AppCompatActivity {
         //write down prayer topics
         pref = new PreferenceManager();
         save_btn = findViewById(R.id.save_btn);
+        delete_btn = findViewById(R.id.delete_btn);
+        revise_btn = findViewById(R.id.revise_btn);
         //editText 할당
         category = findViewById(R.id.editCategory);
         write_pt = findViewById(R.id.write_pt);
@@ -58,13 +61,13 @@ public class Write_prayer_topics extends AppCompatActivity {
                 String edit_category = category.getText().toString();
                 String edit_pt = write_pt.getText().toString();
                 // String 값을 JSONObject로 변환하여 사용할 수 있도록 메모의 제목과 타이틀을 JSON 형식로 저장
-                String save_form = "{\"category\":\""+ edit_category + "\",content\":\""+edit_pt+"\"}";
+                String save_form = "{\"category\":\""+ edit_category + "\",prayer topic\":\""+edit_pt+"\"}";
 
                 // key값이 겹치지 않도록 현재 시간으로 부여
                 long now = System.currentTimeMillis();
                 Date mDate = new Date(now);
-                SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                String getTime = simpleDate.format(mDate).toString();
+                SimpleDateFormat PTdateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", java.util.Locale.getDefault());
+                String getTime = PTdateFormat.format(mDate);
 
                 Log.d("Write_prayer_topicsActivity", "카테고리 : "+edit_category+", 기도제목 : "+edit_pt+", 현재시간 : "+getTime);
                 //PreferenceManager 클래스에서 저장에 관한 메소드를 관리

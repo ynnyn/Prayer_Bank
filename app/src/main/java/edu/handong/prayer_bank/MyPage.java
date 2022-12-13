@@ -20,15 +20,18 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 public class MyPage extends AppCompatActivity {
+    public static Context context_mypage; // context 변수 선언
     // TextEdit variables
     EditText hourET, minuteET, secondET;
     int goalHour, goalMin, goalSec;
+    float goalTime;
 
     private PopupWindow goalPopup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
+        context_mypage = this; // oncreate에서 this 할당
 
         //make the main button
         ImageButton praybutton = findViewById(R.id.prayButton);
@@ -94,9 +97,6 @@ public class MyPage extends AppCompatActivity {
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
-                        // intent를 사용하여 Summary페이지로 목표 기도 시간,분,초를 전달
-                        Intent goalIntent = new Intent(MyPage.this, Summary.class);
                         // TextView로 받기
                         hourET = (EditText)findViewById(R.id.hourET);
                         minuteET = (EditText)findViewById(R.id.minuteET);
@@ -106,10 +106,9 @@ public class MyPage extends AppCompatActivity {
                         goalMin = Integer.parseInt(minuteET.getText().toString());
                         goalSec = Integer.parseInt(secondET.getText().toString());
 
-                        goalIntent.putExtra("g_hour", goalHour); //'g_hour'라는 이름으로 hour 전달
-                        goalIntent.putExtra("g_min", goalMin); // 'g_min'라는 이름으로 minute 전달
-                        goalIntent.putExtra("g_sec", goalSec); //'g_sec'라는 이름으로 sec 전달
-                        startActivity(goalIntent);
+                        Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+
+
 
                     }
                 });

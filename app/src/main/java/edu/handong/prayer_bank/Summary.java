@@ -1,13 +1,22 @@
 package edu.handong.prayer_bank;
 
+
+import static android.content.ContentValues.TAG;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -41,6 +50,9 @@ public class Summary extends AppCompatActivity {
     TextView minuteTextView;
     //goal progressbar
     private ProgressBar progressbar;
+    //text
+    TextView good1, motivate1;
+    ImageView smile, sad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,10 +87,9 @@ public class Summary extends AppCompatActivity {
         // User Input from Mypage
         int goal_h,goal_min,goal_sec;
         float goal_time = 0;
-        Intent goalIntent = getIntent();
-        goal_h = goalIntent.getIntExtra("g_hour", 0);
-        goal_min = goalIntent.getIntExtra("g_min", 0);
-        goal_sec = goalIntent.getIntExtra("g_sec", 0);
+        goal_h = ((MyPage)MyPage.context_mypage).goalHour;
+        goal_min = ((MyPage)MyPage.context_mypage).goalMin;
+        goal_sec = ((MyPage)MyPage.context_mypage).goalSec;
         goal_time += goal_h*60 + goal_min + ((float)goal_sec)/60;
 
 
@@ -124,6 +135,11 @@ public class Summary extends AppCompatActivity {
             }
         });
 
+        //text랑 예수님 상태 바꾸기
+        smile = findViewById(R.id.imageView3);
+        sad = findViewById(R.id.imageView4);
+        good1 = findViewById(R.id.good_text1);
+        motivate1 = findViewById(R.id.motivate_text1);
 
         //Progress graph - 사용자의 개인 기도 시간 진행 보여주기
         progressbar = findViewById(R.id.progressBar);
@@ -139,9 +155,13 @@ public class Summary extends AppCompatActivity {
             if ((goal_time < pray_time)|(goal_time == pray_time)){
                 progressbar.setProgress(100);
                 Log.v("kimsehee_progress1","time"+pray_time);
+                motivate1.setVisibility(View.GONE);
+                sad.setVisibility(View.GONE);
+                good1.setVisibility(View.VISIBLE);
+                smile.setVisibility(View.VISIBLE);
             }else{
-                progressbar.setProgress((int) (pray_time/goal_time)*100);
-                Log.v("kimsehee_progress2","time"+pray_time);
+                progressbar.setProgress((int) (pray_time*100/goal_time));
+                Log.v("kimsehee_progress2","time"+(int) (pray_time*100/goal_time));
             }
 
         }
@@ -156,7 +176,6 @@ public class Summary extends AppCompatActivity {
         labelLst.add("S");
 
         // valList
-
         if (valLst.isEmpty()){
             //int i = weekNow-1;
             for (int i = 0; i < 7; i++){
@@ -204,6 +223,9 @@ public class Summary extends AppCompatActivity {
         //BarChartGraph(labelLst, jsonList);
         barChart.setTouchEnabled(false); // 터치못하게 함.
         //barChart.invalidate();           //차트 업데이트
+
+
+
 
 
     }
@@ -290,6 +312,23 @@ public class Summary extends AppCompatActivity {
 
  */
     }
+
+    /**
+     * ActivityResultLauncher
+     */
+    ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == RESULT_OK)
+                    {
+                        Log.e(TAG, "result : " + result);
+                        Intent intent = result.getData();
+                        Log.e(TAG, "intent : " + intent);
+                        Uri uri = intent.getData();
+                    }
+                }
+            });
 
 
 }

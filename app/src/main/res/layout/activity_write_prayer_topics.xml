@@ -15,7 +15,7 @@
     <!-- Write Prayer -->
     <TextView
         android:id="@+id/when_date"
-        android:layout_width="69dp"
+        android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginStart="@dimen/write_rl"
         android:layout_marginTop="@dimen/write_tb"
@@ -24,36 +24,75 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/write_pt"
+        android:id="@+id/editCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/save_btn"
+        android:layout_above="@+id/write_pt"
+        android:layout_below="@id/when_date"
         android:layout_marginStart="@dimen/write_rl"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="567dp"
+        android:layout_marginBottom="@dimen/write_tb"
+        android:layout_toEndOf="@+id/when_date"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/write_rl"
+        android:ems="10"
+        android:gravity="top|center_horizontal"
+        android:inputType="textPersonName"
+        android:text="@string/categories"
+        android:maxWidth="100dp"
+        android:maxHeight="50dp"/>
+
+    <EditText
+        android:id="@+id/write_pt"
+        android:layout_width="wrap_content"
+        android:layout_height="600dp"
+        android:layout_above="@+id/btn_layout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/write_rl"
+        android:layout_marginTop="@dimen/write_tb"
+        android:layout_marginEnd="@dimen/write_rl"
+        android:layout_marginBottom="@dimen/write_tb"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/write_down"
         android:inputType="textMultiLine"
-        android:maxWidth="290dp"
-        android:maxHeight="400dp" />
+        android:maxWidth="700dp"
+        android:maxHeight="700dp" />
 
-    <Button
-        android:id="@+id/save_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="150dp"
-        android:gravity="bottom"
-        android:text="@string/save" />
 
-    <EditText
-        android:id="@+id/editCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/categories" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:id = "@+id/btn_layout"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="start"
+            android:layout_marginStart="@dimen/write_rl"
+            android:text="@string/save" />
+
+        <Button
+            android:id="@+id/revise_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="@dimen/write_rl"
+            android:text="@string/revise" />
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="@dimen/write_rl"
+            android:text="@string/delete" />
+        </LinearLayout>
 
 </RelativeLayout>
