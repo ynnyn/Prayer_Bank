@@ -87,6 +87,7 @@ public class Summary extends AppCompatActivity {
         // User Input from Mypage
         int goal_h,goal_min,goal_sec;
         float goal_time = 0;
+        // 여기가 이상한 듯 아마도
         goal_h = ((MyPage)MyPage.context_mypage).goalHour;
         goal_min = ((MyPage)MyPage.context_mypage).goalMin;
         goal_sec = ((MyPage)MyPage.context_mypage).goalSec;
@@ -147,6 +148,7 @@ public class Summary extends AppCompatActivity {
         if (goal_time == 0){
             try {
                 progressbar.setProgress(100);
+                Log.v("kimsehee-100", "goal time"+goal_time);
             } catch (Exception e){
                 Toast.makeText(Summary.this, "Error", Toast.LENGTH_SHORT).show();
             }
