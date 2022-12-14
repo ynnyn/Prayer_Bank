@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -93,10 +94,17 @@ public class Summary extends AppCompatActivity {
         goal_min = ((MyPage)MyPage.context_mypage).goalMin;
         goal_sec = ((MyPage)MyPage.context_mypage).goalSec;
         */
+
+        // ShaerePreference Code Start
+        // Summarry page에서 설정한 변수의 값을 Summary라는 key로 읽어오면 미리 설정한 변수들을 쓸 수 있다.
+        SharedPreferences sh = getSharedPreferences("Summary",MODE_PRIVATE);
+
+        goal_h=sh.getInt("g_hour",0);   // default값을 0으로 설정
+        goal_min=sh.getInt("g_min",0);  // default값을 0으로 설정
+        goal_sec=sh.getInt("g_sec",0);  // default값을 0으로 설정
+        //  ShaerePreference Code End  --> 다른 코드들도 고치기
+
         Intent goalIntent = getIntent();
-        goal_h = goalIntent.getIntExtra("g_hour", 0);
-        goal_min = goalIntent.getIntExtra("g_min", 0);
-        goal_sec = goalIntent.getIntExtra("g_sec", 0);
         goal_time = goal_h*60 + goal_min + ((float)goal_sec)/60;
 
 
@@ -240,9 +248,12 @@ public class Summary extends AppCompatActivity {
         //barChart.invalidate();           //차트 업데이트
 
 
-
-
-
+    }
+    // back 버튼을 눌렀을 때에도 저장된 값을 보여주는 함수
+    protected void onStart()
+    {
+        super.onStart();
+//        Toast.makeText(getApplicationContext(),"Now onStart() calls", Toast.LENGTH_LONG).show(); //onStart Called
     }
 
     private void setData(ArrayList<String> labelList, ArrayList<Float> valList) {
