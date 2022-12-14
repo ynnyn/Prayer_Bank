@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +22,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     boolean isDrawerOpend;
 
+    // Firebase
+    private FirebaseAnalytics mFirebaseAnalytics;
+    //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference mdatabase;
 
     //write
     FrameLayout today_prayer, today_thanks, favorites;
@@ -44,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Firebase  --> DB가 아니라 analy에 연동시키기!
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        // Firebase DB 연동
+        mdatabase = FirebaseDatabase.getInstance().getReference();
 
         ImageButton buttonOpen = findViewById(R.id.menuButton);
         buttonOpen.setOnClickListener(new Button.OnClickListener() {

@@ -7,6 +7,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -98,18 +99,28 @@ public class MyPage extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // TextView로 받기
-                        hourET = (EditText)findViewById(R.id.hourET);
-                        minuteET = (EditText)findViewById(R.id.minuteET);
-                        secondET = (EditText)findViewById(R.id.secondET);
+                        hourET = (EditText)goal_popupView.findViewById(R.id.hourET);     // goal_popupView인 이유는 xml에서 ok 버튼이 mypage가 아니라 goal_popup에 있기 때문
+                        minuteET = (EditText)goal_popupView.findViewById(R.id.minuteET); // goal_popupView인 이유는 xml에서 ok 버튼이 mypage가 아니라 goal_popup에 있기 때문
+                        secondET = (EditText)goal_popupView.findViewById(R.id.secondET); // goal_popupView인 이유는 xml에서 ok 버튼이 mypage가 아니라 goal_popup에 있기 때문
 
-                        goalHour = hourET.getText().toString();
+                        goalHour = hourET.getText().toString();   // 아무것도 누르지 않았을 때 어떤 데이터가 넘겨지는지 확인하기!
                         goalMin = minuteET.getText().toString();
                         goalSec = secondET.getText().toString();
 
+                        // ShaerePreference Code Start  유저가 입력한 데이터를 변수에 저장
+                        SharedPreferences sharedPreferences = getSharedPreferences("Summary", MODE_PRIVATE);
+                        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+                        myEdit.putInt("g_hour", Integer.parseInt(goalHour));
+                        myEdit.putInt("g_min", Integer.parseInt(goalMin));
+                        myEdit.putInt("g_sec", Integer.parseInt(goalSec));
+                        myEdit.commit();
+                        //  ShaerePreference Code End
+
                         Intent intent = new Intent(MyPage.this, Summary.class);
-                        intent.putExtra("g_hour", goalHour);
-                        intent.putExtra("g_min", goalMin);
-                        intent.putExtra("g_sec", goalSec);
+//                        intent.putExtra("g_hour", goalHour);
+//                        intent.putExtra("g_min", goalMin);
+//                        intent.putExtra("g_sec", goalSec);
                         Log.v("kimsehee-set goal", goalHour+goalMin+goalSec);
 
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
