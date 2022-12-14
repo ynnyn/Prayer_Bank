@@ -166,7 +166,9 @@
                 android:gravity="center"
                 android:hint="00"
                 android:inputType="number"
-                android:textSize="24sp" />
+                android:textColorHint="#78909C"
+                android:textSize="24sp"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:layout_width="0dp"
@@ -185,7 +187,9 @@
                 android:gravity="center"
                 android:hint="00"
                 android:inputType="number"
-                android:textSize="24sp" />
+                android:textColorHint="#78909C"
+                android:textSize="24sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
                 android:layout_width="0dp"
@@ -204,7 +208,9 @@
                 android:gravity="center"
                 android:hint="00"
                 android:inputType="number"
-                android:textSize="24sp" />
+                android:textColorHint="#78909C"
+                android:textSize="24sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 

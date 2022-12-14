@@ -66,33 +66,21 @@
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:id = "@+id/btn_layout"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+
         <Button
             android:id="@+id/save_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:gravity="start"
-            android:layout_marginStart="@dimen/write_rl"
-            android:text="@string/save" />
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:text="@string/save"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <Button
-            android:id="@+id/revise_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="@dimen/write_rl"
-            android:text="@string/revise" />
-
-        <Button
-            android:id="@+id/delete_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="@dimen/write_rl"
-            android:text="@string/delete" />
-        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

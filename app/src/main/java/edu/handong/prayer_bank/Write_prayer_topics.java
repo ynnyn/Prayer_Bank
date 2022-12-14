@@ -1,11 +1,6 @@
 package edu.handong.prayer_bank;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 
@@ -47,7 +44,7 @@ public class Write_prayer_topics extends AppCompatActivity {
         pref = new PreferenceManager();
         save_btn = findViewById(R.id.save_btn);
         delete_btn = findViewById(R.id.delete_btn);
-        revise_btn = findViewById(R.id.revise_btn);
+        //revise_btn = findViewById(R.id.revise_btn);
         //editText 할당
         category = findViewById(R.id.editCategory);
         write_pt = findViewById(R.id.write_pt);
