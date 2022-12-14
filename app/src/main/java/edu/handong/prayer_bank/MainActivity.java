@@ -1,8 +1,13 @@
 package edu.handong.prayer_bank;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,7 +15,13 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -23,6 +34,14 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     MemoAdapter memoAdapter;
     ImageButton write_btn;
     private int REQUEST_TEST = 200;
+    //show
+    TextView show_pt;
 
 
     @Override
@@ -186,6 +207,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // preferences 모든 값 가져오기
+        /*
+        SharedPreferences showpre = getSharedPreferences("memo_contain", MODE_PRIVATE);
+        Collection<?> col_val = showpre.getAll().values();
+        Iterator<?> it_val = col_val.iterator();
+        Collection<?> col_key = showpre.getAll().keySet();
+        Iterator<?> it_key = col_key.iterator();
+        show_pt = findViewById(R.id.topics);
+
+        while ((!it_val.hasNext()) && (!it_key.hasNext())) {
+            String key = (String) it_key.next();
+            String value = (String) it_val.next();
+            try {
+                JSONObject jsonObject = new JSONObject(value);
+                String content = (String) jsonObject.getString("content");
+                show_pt.setText(content);
+            } catch (JSONException e) {
+                Log.d("MainActivity", "JSONObject : " + e);
+            }
+
+
+        }
+
+         */
+
+
+
+        // key값 = 작성 시간
+
+
 
 
 
@@ -244,6 +295,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (toggle.onOptionsItemSelected(item)) {
@@ -279,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
 
         }*/
     }
+
 
 
 

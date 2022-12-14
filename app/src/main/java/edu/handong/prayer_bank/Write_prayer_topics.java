@@ -1,6 +1,7 @@
 package edu.handong.prayer_bank;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,11 +44,13 @@ public class Write_prayer_topics extends AppCompatActivity {
         //write down prayer topics
         pref = new PreferenceManager();
         save_btn = findViewById(R.id.save_btn);
-        delete_btn = findViewById(R.id.delete_btn);
-        //revise_btn = findViewById(R.id.revise_btn);
         //editText 할당
         category = findViewById(R.id.editCategory);
         write_pt = findViewById(R.id.write_pt);
+        // key 값 따로 저장
+        SharedPreferences key_spf = getSharedPreferences("Pray_key", MODE_PRIVATE);
+        SharedPreferences.Editor kEdit = key_spf.edit();
+
 
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,13 +68,14 @@ public class Write_prayer_topics extends AppCompatActivity {
                 Date mDate = new Date(now);
                 SimpleDateFormat PTdateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", java.util.Locale.getDefault());
                 String getTime = PTdateFormat.format(mDate);
+                kEdit.putString("key", getTime);
 
                 Log.d("Write_prayer_topicsActivity", "카테고리 : "+edit_category+", 기도제목 : "+edit_pt+", 현재시간 : "+getTime);
                 //PreferenceManager 클래스에서 저장에 관한 메소드를 관리
                 pref.setString(getApplication(),getTime,save_form);
 
 
-                // Intent로 값을 MainActivity에 전달
+                // Intent로 값을 Prayer_topics Activity에 전달
                 Intent intent = new Intent();
                 intent.putExtra("date",getTime);
                 intent.putExtra("category",edit_category);

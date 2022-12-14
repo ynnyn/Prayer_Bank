@@ -152,6 +152,8 @@ public class Prayer_topics extends AppCompatActivity {
         Collection<?> col_key = prefb.getAll().keySet();
         Iterator<?> it_key = col_key.iterator();
 
+
+
         while (it_val.hasNext() && it_key.hasNext()) {
             String key = (String) it_key.next();
             String value = (String) it_val.next();
