@@ -1,6 +1,7 @@
 package edu.handong.prayer_bank;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.provider.CalendarContract;
 import android.util.Log;
 import android.widget.ImageButton;
@@ -167,16 +168,26 @@ public class Prayer extends AppCompatActivity {
             }
         });
 
+
+
         //intent를 사용하여 Summary페이지로 기도한 시간,분,초를 전달Intent timeIntent = new Intent(Prayer.this, Summary.class);
         Intent timeIntent = new Intent(Prayer.this, Summary.class);
         stopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timeIntent.putExtra("_hour", hour); //'_hour'라는 이름으로 hour 전달
-                timeIntent.putExtra("_min", minute); // '_min'라는 이름으로 minute 전달
-                timeIntent.putExtra("_sec", second); //'_sec'라는 이름으로 sec 전달
-                timeIntent.putExtra("_dateNow", dateNow); //'_dateNow'라는 이름으로 날짜 전달
-                timeIntent.putExtra("_weekNow", weekNow); //'_weekNow'라는 이름으로 요일 전달
+                // ShaerePreference Code Start  유저가 입력한 데이터를 변수에 저장
+                weekNow = getCurrentWeek();
+                SharedPreferences Pray_time = getSharedPreferences("Pray", MODE_PRIVATE);
+                SharedPreferences.Editor pEdit = Pray_time.edit();
+
+                pEdit.putInt("p_hour", hour);
+                pEdit.putInt("p_min", minute);
+                pEdit.putInt("p_sec", second);
+                pEdit.putInt("weekNow", weekNow);
+
+                pEdit.apply();
+                //  ShaerePreference Code End
+
                 // Console창에 time이라는 태그명으로 "time: pray_time"을 출력하라
                 Log.v("kimsehee1","time"+hour+minute+second);
                 startActivity(timeIntent);

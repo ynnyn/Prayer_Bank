@@ -62,7 +62,6 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
         // 메모 아이템 xml상에 메모 데이터가 적용되도록 세팅
         holder.setItem(item);
 
-        // 사실 필요 없음.
         // 메모 아이템 안에 있는 보기 버튼을 클릭하여 상세보기(ViewActivity)로 이동
         holder.view_btn.setOnClickListener(new View.OnClickListener() {
             @Override

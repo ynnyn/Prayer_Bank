@@ -108,7 +108,7 @@ public class MyPage extends AppCompatActivity {
                         goalSec = secondET.getText().toString();
 
                         // ShaerePreference Code Start  유저가 입력한 데이터를 변수에 저장
-                        SharedPreferences sharedPreferences = getSharedPreferences("Summary", MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = getSharedPreferences("My Page", MODE_PRIVATE);
                         SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
                         myEdit.putInt("g_hour", Integer.parseInt(goalHour));
@@ -117,15 +117,15 @@ public class MyPage extends AppCompatActivity {
                         myEdit.commit();
                         //  ShaerePreference Code End
 
-                        Intent intent = new Intent(MyPage.this, Summary.class);
+//                        Intent intent = new Intent(MyPage.this, Summary.class);
 //                        intent.putExtra("g_hour", goalHour);
 //                        intent.putExtra("g_min", goalMin);
 //                        intent.putExtra("g_sec", goalSec);
                         Log.v("kimsehee-set goal", goalHour+goalMin+goalSec);
 
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
-                        startActivity(intent);
-                        //why??
+//                        startActivity(intent);
+
 
 
                     }

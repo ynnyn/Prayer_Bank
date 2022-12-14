@@ -72,39 +72,36 @@ public class Summary extends AppCompatActivity {
         // Prayer 페이지에서 실제로 기도한 시간을 전달받는다.
         int pray_hour,pray_min,pray_sec;
         float pray_time = 0;
-        Intent timeIntent = getIntent();
-        pray_hour = timeIntent.getIntExtra("_hour", 0);
-        pray_min = timeIntent.getIntExtra("_min", 0);
-        pray_sec = timeIntent.getIntExtra("_sec", 0);
+        // ShaerePreference Code Start
+        // Summarry page에서 설정한 변수의 값을 Summary라는 key로 읽어오면 미리 설정한 변수들을 쓸 수 있다.
+        SharedPreferences pray = getSharedPreferences("Pray",MODE_PRIVATE);
+
+        pray_hour = pray.getInt("p_hour", 0);   // default값을 0으로 설정
+        pray_min = pray.getInt("p_min", 0);   // default값을 0으로 설정
+        pray_sec = pray.getInt("p_sec", 0);   // default값을 0으로 설정
+        //
         pray_time += pray_hour*60 + pray_min + ((float)pray_sec)/60;
 
         // Now Date, day of the week
         String dateNow;
         int weekNow;
-        dateNow = timeIntent.getStringExtra("_dateNow");
-        weekNow = timeIntent.getIntExtra("_weekNow", 0);
+        weekNow = pray.getInt("weekNow", getCurrentWeek()); //default값으로 오늘 날짜 넣기
 
 
         // User Input from Mypage
         int goal_h,goal_min,goal_sec;
         float goal_time = 0;
-        // 여기가 이상한 듯 아마도
-        /*
-        goal_h = ((MyPage)MyPage.context_mypage).goalHour;
-        goal_min = ((MyPage)MyPage.context_mypage).goalMin;
-        goal_sec = ((MyPage)MyPage.context_mypage).goalSec;
-        */
 
         // ShaerePreference Code Start
         // Summarry page에서 설정한 변수의 값을 Summary라는 key로 읽어오면 미리 설정한 변수들을 쓸 수 있다.
-        SharedPreferences sh = getSharedPreferences("Summary",MODE_PRIVATE);
+        SharedPreferences sh = getSharedPreferences("My Page",MODE_PRIVATE);
 
         goal_h=sh.getInt("g_hour",0);   // default값을 0으로 설정
         goal_min=sh.getInt("g_min",0);  // default값을 0으로 설정
         goal_sec=sh.getInt("g_sec",0);  // default값을 0으로 설정
         //  ShaerePreference Code End  --> 다른 코드들도 고치기
 
-        Intent goalIntent = getIntent();
+        //Intent goalIntent = getIntent();
         goal_time = goal_h*60 + goal_min + ((float)goal_sec)/60;
 
 
@@ -203,7 +200,7 @@ public class Summary extends AppCompatActivity {
             //int i = weekNow-1;
             for (int i = 0; i < 7; i++){
                 if (i==weekNow-1) valLst.add(i, pray_time);
-                else valLst.add((float)5.5);
+                else valLst.add((float)0.0);
             }
 
         }else{
@@ -287,27 +284,6 @@ public class Summary extends AppCompatActivity {
         setData(labelLst, valLst);
         barChart.invalidate();    //차트 업데이트
     }
-    /*
-    public void graphInitSetting(){
-        labelLst.add("S");
-        labelLst.add("M");
-        labelLst.add("T");
-        labelLst.add("W");
-        labelLst.add("T");
-        labelLst.add("F");
-        labelLst.add("S");
-
-        // 나중에 사용자마다 그래프 단위 달라지게 만들어야 할 듯
-        for(int i = 0; i < 8; i++){
-            int label_unit = 10 + i*10;
-            valLst.add(label_unit); //element
-        }
-
-        BarChartGraph(labelLst, valLst);
-
-    }
-
-     */
 
     /**
      * 그래프함수
@@ -355,6 +331,20 @@ public class Summary extends AppCompatActivity {
                     }
                 }
             });
+
+    // 현재 요일 받는 함수
+    public static int getCurrentWeek() {
+        Date currentDate = new Date();
+
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        int dayOfWeekNumber = calendar.get(java.util.Calendar.DAY_OF_WEEK);
+        // 1 : 일요일(S), 2: 월요일(M), 3: 화요일(T), 4: 수요일(W), 5: 목요일(T),
+        // 6: 금요일(F), 7: 토요일(S)
+
+        return dayOfWeekNumber;
+    }
 
 
 }
