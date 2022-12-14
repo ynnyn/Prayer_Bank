@@ -3,16 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/round_square_blue.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/my_progressbar.xml" value="0.277" />
         <entry key="app/src/main/res/layout/absent_view.xml" value="0.22227630615234378" />
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.21220550537109378" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3062667846679688" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.46464691162109384" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_mypage.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_prayer.xml" value="0.21757659912109378" />
-        <entry key="app/src/main/res/layout/activity_prayer_topics.xml" value="0.2463768115942029" />
-        <entry key="app/src/main/res/layout/activity_summary.xml" value="0.24528301886792453" />
-        <entry key="app/src/main/res/layout/activity_thanksgiving.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_prayer_topics.xml" value="0.26646805915279664" />
+        <entry key="app/src/main/res/layout/activity_summary.xml" value="0.20930232558139536" />
+        <entry key="app/src/main/res/layout/activity_thanksgiving.xml" value="0.17343292236328126" />
+        <entry key="app/src/main/res/layout/activity_todays_report.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_view_pt.xml" value="0.22373931019018728" />
         <entry key="app/src/main/res/layout/activity_write_prayer_topics.xml" value="0.20043259772701538" />
+        <entry key="app/src/main/res/layout/activity_write_thanksgiving.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.22644927536231885" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.279874213836478" />
         <entry key="app/src/main/res/layout/current_view.xml" value="0.1" />
@@ -20,8 +25,10 @@
         <entry key="app/src/main/res/layout/fragment_category_family2.xml" value="0.26229095458984364" />
         <entry key="app/src/main/res/layout/fragment_category_friends2.xml" value="0.17576866702757016" />
         <entry key="app/src/main/res/layout/fragment_category_me2.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/items_prayer_topics.xml" value="0.34032634032634035" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.20505777994791663" />
         <entry key="app/src/main/res/layout/present_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/today_prayer_topic.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.29862467447916663" />
       </map>
     </option>
