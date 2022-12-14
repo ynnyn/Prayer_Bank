@@ -36,17 +36,28 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="19dp"
         android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="15dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/prayButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner" />
-
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintVertical_bias="1.0" />
     <ImageButton
         android:id="@+id/prayButton"
         android:layout_width="wrap_content"
@@ -147,31 +158,17 @@
         app:srcCompat="@drawable/event"
         tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="403dp"
-        android:layout_height="3dp"
-        android:layout_marginTop="578dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="11dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/prayButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
-
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginBottom="19dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:contentDescription="@string/profile"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26999998"
         app:srcCompat="@drawable/person_crop_circle" />
 
     <TextView
@@ -182,6 +179,7 @@
         android:layout_marginBottom="5dp"
         android:text="@string/nickname"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/editButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -189,17 +187,17 @@
 
     <Button
         android:id="@+id/editButton"
-        android:layout_width="59dp"
+        android:layout_width="wrap_content"
         android:layout_height="41dp"
-        android:layout_marginTop="3dp"
         android:layout_marginBottom="30dp"
         android:text="@string/edit"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63"
         tools:ignore="TouchTargetSizeCheck" />
 
     <View
@@ -208,6 +206,7 @@
         android:layout_height="1dp"
         android:layout_marginBottom="11dp"
         android:background="?android:attr/listDivider"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/alarmButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.557"
@@ -218,7 +217,6 @@
         android:id="@+id/divider4"
         android:layout_width="350dp"
         android:layout_height="1dp"
-        android:layout_marginTop="14dp"
         android:layout_marginBottom="16dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/goalButton"
@@ -231,7 +229,7 @@
         android:id="@+id/divider5"
         android:layout_width="350dp"
         android:layout_height="1dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="10dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -247,6 +245,7 @@
         android:layout_marginEnd="267dp"
         android:layout_marginBottom="25dp"
         android:text="@string/alarm"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toStartOf="@+id/alarmButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -267,8 +266,6 @@
         app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
 
-
-
     <ImageButton
         android:id="@+id/alarmButton"
         android:layout_width="40dp"
@@ -278,8 +275,9 @@
         android:backgroundTint="#03FFFFFF"
         android:contentDescription="@string/alarmbutton"
         android:maxHeight="30dp"
-        android:scaleType="centerCrop"
         android:onClick="clickBtn"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView9"

@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/banner"
-        android:layout_width="421dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,11 @@
 
         <ImageButton
             android:id="@+id/leftButton"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="45dp"
             android:background="@color/white"
             android:maxHeight="40dp"
             android:paddingHorizontal="15dp"
@@ -33,22 +34,16 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
             android:text="@string/prayer_topics"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="@+id/prayButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.038" />
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
         <ImageButton
             android:id="@+id/rightButton"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:background="#00000000"
@@ -84,15 +79,16 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/divider13"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginBottom="28dp"
+        android:id="@+id/divider2"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="15dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/prayButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider12"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/mypageButton"
@@ -195,14 +191,14 @@
 
     <View
         android:id="@+id/divider12"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="3dp"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="19dp"
         android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
 </androidx.constraintlayout.widget.ConstraintLayout>

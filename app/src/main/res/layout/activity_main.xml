@@ -7,7 +7,9 @@
     android:fitsSystemWindows="true"
     android:id="@+id/main_screen"
     tools:openDrawer="start"
+    tools:context=".MainActivity"
     tools:ignore="ExtraText">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -168,8 +170,8 @@
 
         <FrameLayout
             android:id="@id/today_prayer"
-            android:layout_width="363dp"
-            android:layout_height="186dp"
+            android:layout_width="366dp"
+            android:layout_height="229dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/round_square"
@@ -196,34 +198,36 @@
 
             <ImageButton
                 android:id="@+id/plus"
-                android:layout_width="21dp"
-                android:layout_height="21dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="#00000000"
                 android:contentDescription="@string/heart"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/plus"
+                app:srcCompat="@drawable/pencil"
                 tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
-            <FrameLayout
+            <LinearLayout
+                android:id="@id/prayer_list"
                 android:layout_width="match_parent"
-                android:layout_height="147dp"
+                android:layout_height="199dp"
                 android:translationY="35dp">
 
-                <ListView
-                    android:id="@+id/todays_prayer_list"
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></ListView>
-            </FrameLayout>
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:id="@+id/memo_rv"/>
+            </LinearLayout>
         </FrameLayout>
 
 
         <FrameLayout
             android:id="@+id/today_thanks"
-            android:layout_width="360dp"
-            android:layout_height="197dp"
+            android:layout_width="361dp"
+            android:layout_height="223dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/round_square_blue"
@@ -247,20 +251,20 @@
 
             <ImageButton
                 android:id="@+id/pencil"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="#00000000"
                 android:contentDescription="@string/heart"
                 android:scaleType="centerInside"
-                android:translationY="125dp"
                 app:srcCompat="@drawable/pencil"
                 tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="112dp"
+                android:layout_height="175dp"
                 android:translationY="50dp" />
 
         </FrameLayout>

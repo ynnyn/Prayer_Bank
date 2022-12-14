@@ -1,12 +1,9 @@
 package edu.handong.prayer_bank;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.util.Property;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,7 +73,7 @@ public class Calendar extends AppCompatActivity {
         diaryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent today_report = new Intent(Calendar.this, Today_report.class);
+                Intent today_report = new Intent(Calendar.this, Prayer_topics.class);
                 startActivity(today_report);
             }
         });

@@ -10,9 +10,27 @@
     android:viewportWidth="303"
     android:viewportHeight="449"
 
-    tools:context=".Write_prayer_topics">
+    tools:context=".Write_thanksgiving">
 
     <!-- Write Prayer -->
+    <EditText
+        android:id="@+id/editCategory2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/write_pt"
+        android:layout_below="@id/when_date"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/write_rl"
+        android:layout_marginEnd="@dimen/write_rl"
+        android:layout_marginBottom="@dimen/write_tb"
+        android:layout_toEndOf="@+id/when_date"
+        android:ems="10"
+        android:gravity="top|center_horizontal"
+        android:inputType="textPersonName"
+        android:maxWidth="100dp"
+        android:maxHeight="50dp"
+        android:text="@string/categories" />
+
     <TextView
         android:id="@+id/when_date"
         android:layout_width="wrap_content"
@@ -22,24 +40,6 @@
         android:gravity="start|top"
         android:text="@string/when_date"
         android:textSize="15sp" />
-
-    <EditText
-        android:id="@+id/editCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/write_pt"
-        android:layout_below="@id/when_date"
-        android:layout_marginStart="@dimen/write_rl"
-        android:layout_marginBottom="@dimen/write_tb"
-        android:layout_toEndOf="@+id/when_date"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/write_rl"
-        android:ems="10"
-        android:gravity="top|center_horizontal"
-        android:inputType="textPersonName"
-        android:text="@string/categories"
-        android:maxWidth="100dp"
-        android:maxHeight="50dp"/>
 
     <EditText
         android:id="@+id/write_pt"
@@ -54,7 +54,7 @@
         android:layout_marginBottom="@dimen/write_tb"
         android:ems="10"
         android:gravity="center"
-        android:hint="Write down here"
+        android:hint="@string/write_down"
         android:inputType="textMultiLine"
         android:maxWidth="700dp"
         android:maxHeight="700dp" />

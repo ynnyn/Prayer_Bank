@@ -2,9 +2,7 @@ package edu.handong.prayer_bank;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,22 +11,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-
-import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     boolean isDrawerOpend;
+    private AppBarConfiguration mAppBarConfiguration;
+    RecyclerView recyclerView;
+    PreferenceManager pref;
 
     // Firebase
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -44,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     //write
     FrameLayout today_prayer, today_thanks, favorites;
-    LinearLayout write_page;
-    RecyclerView recyclerView;
+    LinearLayout prayer_list, write_page;
     MemoAdapter memoAdapter;
     ImageButton write_btn;
     private int REQUEST_TEST = 200;
@@ -131,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton calenderbutton = findViewById(R.id.calendarButton);
         ImageButton homebutton = findViewById(R.id.homeButton);
         ImageButton addPrayerButton = findViewById(R.id.plus);
+        ImageButton addThanksgivingButton = findViewById(R.id.pencil);
 
 
         //screen change
@@ -174,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(home);
             }
         });
+        //add prayer
         addPrayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,6 +180,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //add thanksgiving
+        addThanksgivingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addThanksgiving = new Intent(MainActivity.this, Thanksgiving.class);
+                startActivity(addThanksgiving);
+
+            }
+        });
+
+
 
 
 

@@ -102,15 +102,15 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,DuplicateClickableBoundsCheck,DuplicateSpeakableTextCheck" />
 
     <View
-        android:id="@+id/divider7"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:id="@+id/divider2"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
         android:layout_marginBottom="15dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/prayButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/stop_button"
@@ -118,10 +118,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/stop"
-        app:layout_constraintBottom_toTopOf="@+id/divider7"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86"
         tools:ignore="TextContrastCheck" />
 
     <Button
@@ -130,10 +132,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@+id/divider7"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86"
         tools:ignore="TextContrastCheck" />
 
 
@@ -141,13 +145,14 @@
         android:id="@+id/timeAll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_gravity = "center"
+        android:layout_gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37">
 
         <LinearLayout
             android:id="@+id/timeCountLV"
@@ -213,7 +218,6 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
-
 
 
         <LinearLayout

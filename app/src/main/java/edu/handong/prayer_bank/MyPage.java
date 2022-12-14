@@ -1,8 +1,5 @@
 package edu.handong.prayer_bank;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -19,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 public class MyPage extends AppCompatActivity {
     public static Context context_mypage; // context 변수 선언
@@ -83,7 +83,7 @@ public class MyPage extends AppCompatActivity {
             }
         });
 
-        ImageButton goal = (ImageButton)  findViewById(R.id.goalButton);
+        Button goal = (Button)  findViewById(R.id.editButton);
         goal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
