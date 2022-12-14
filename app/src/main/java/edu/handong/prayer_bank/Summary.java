@@ -88,10 +88,17 @@ public class Summary extends AppCompatActivity {
         int goal_h,goal_min,goal_sec;
         float goal_time = 0;
         // 여기가 이상한 듯 아마도
+        /*
         goal_h = ((MyPage)MyPage.context_mypage).goalHour;
         goal_min = ((MyPage)MyPage.context_mypage).goalMin;
         goal_sec = ((MyPage)MyPage.context_mypage).goalSec;
-        goal_time += goal_h*60 + goal_min + ((float)goal_sec)/60;
+        */
+        Intent goalIntent = getIntent();
+        goal_h = goalIntent.getIntExtra("g_hour", 0);
+        goal_min = goalIntent.getIntExtra("g_min", 0);
+        goal_sec = goalIntent.getIntExtra("g_sec", 0);
+        goal_time = goal_h*60 + goal_min + ((float)goal_sec)/60;
+
 
 
         //screen change
@@ -148,7 +155,7 @@ public class Summary extends AppCompatActivity {
         if (goal_time == 0){
             try {
                 progressbar.setProgress(100);
-                Log.v("kimsehee-100", "goal time"+goal_time);
+                Log.v("kimsehee-100", "goal time"+goal_h+goal_min+goal_sec);
             } catch (Exception e){
                 Toast.makeText(Summary.this, "Error", Toast.LENGTH_SHORT).show();
             }
@@ -157,6 +164,7 @@ public class Summary extends AppCompatActivity {
             if ((goal_time < pray_time)|(goal_time == pray_time)){
                 progressbar.setProgress(100);
                 Log.v("kimsehee_progress1","time"+pray_time);
+                Log.v("kimsehee_progress1-1","goal time"+goal_time);
                 motivate1.setVisibility(View.GONE);
                 sad.setVisibility(View.GONE);
                 good1.setVisibility(View.VISIBLE);
@@ -164,6 +172,11 @@ public class Summary extends AppCompatActivity {
             }else{
                 progressbar.setProgress((int) (pray_time*100/goal_time));
                 Log.v("kimsehee_progress2","time"+(int) (pray_time*100/goal_time));
+                good1.setVisibility(View.GONE);
+                smile.setVisibility(View.GONE);
+                motivate1.setVisibility(View.VISIBLE);
+                sad.setVisibility(View.VISIBLE);
+
             }
 
         }

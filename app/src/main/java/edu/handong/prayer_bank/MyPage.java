@@ -23,7 +23,7 @@ public class MyPage extends AppCompatActivity {
     public static Context context_mypage; // context 변수 선언
     // TextEdit variables
     EditText hourET, minuteET, secondET;
-    int goalHour, goalMin, goalSec;
+    String goalHour, goalMin, goalSec;
     float goalTime;
 
     private PopupWindow goalPopup;
@@ -31,7 +31,7 @@ public class MyPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
-        context_mypage = this; // oncreate에서 this 할당
+        //context_mypage = this; // oncreate에서 this 할당
 
         //make the main button
         ImageButton praybutton = findViewById(R.id.prayButton);
@@ -102,12 +102,19 @@ public class MyPage extends AppCompatActivity {
                         minuteET = (EditText)findViewById(R.id.minuteET);
                         secondET = (EditText)findViewById(R.id.secondET);
 
-                        goalHour = Integer.parseInt(hourET.getText().toString());
-                        goalMin = Integer.parseInt(minuteET.getText().toString());
-                        goalSec = Integer.parseInt(secondET.getText().toString());
+                        goalHour = hourET.getText().toString();
+                        goalMin = minuteET.getText().toString();
+                        goalSec = secondET.getText().toString();
+
+                        Intent intent = new Intent(MyPage.this, Summary.class);
+                        intent.putExtra("g_hour", goalHour);
+                        intent.putExtra("g_min", goalMin);
+                        intent.putExtra("g_sec", goalSec);
+                        Log.v("kimsehee-set goal", goalHour+goalMin+goalSec);
 
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
-
+                        startActivity(intent);
+                        //why??
 
 
                     }
