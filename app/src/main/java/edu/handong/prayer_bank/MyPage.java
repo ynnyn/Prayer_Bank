@@ -103,9 +103,27 @@ public class MyPage extends AppCompatActivity {
                         minuteET = (EditText)goal_popupView.findViewById(R.id.minuteET); // goal_popupView인 이유는 xml에서 ok 버튼이 mypage가 아니라 goal_popup에 있기 때문
                         secondET = (EditText)goal_popupView.findViewById(R.id.secondET); // goal_popupView인 이유는 xml에서 ok 버튼이 mypage가 아니라 goal_popup에 있기 때문
 
-                        goalHour = hourET.getText().toString();   // 아무것도 누르지 않았을 때 어떤 데이터가 넘겨지는지 확인하기!
+                        goalHour = hourET.getText().toString();
                         goalMin = minuteET.getText().toString();
                         goalSec = secondET.getText().toString();
+
+                        // Version을 다르게 할 때 주석 처리
+                        // 입력받은 숫자가 2자리수가 아니면 자리수를 0으로 채우기
+                        if(goalHour.length()==0){
+                            goalHour="00";
+                        }else if(goalHour.length()==1){
+                            goalHour="0"+goalHour;
+                        }
+                        if(goalMin.length()==0){
+                            goalMin="00";
+                        }else if(goalMin.length()==1){
+                            goalMin="0"+goalMin;
+                        }
+                        if(goalSec.length()==0){
+                            goalSec="00";
+                        }else if(goalSec.length()==1){
+                            goalSec="0"+goalSec;
+                        }
 
                         // ShaerePreference Code Start  유저가 입력한 데이터를 변수에 저장
                         SharedPreferences sharedPreferences = getSharedPreferences("My Page", MODE_PRIVATE);
@@ -117,11 +135,7 @@ public class MyPage extends AppCompatActivity {
                         myEdit.commit();
                         //  ShaerePreference Code End
 
-//                        Intent intent = new Intent(MyPage.this, Summary.class);
-//                        intent.putExtra("g_hour", goalHour);
-//                        intent.putExtra("g_min", goalMin);
-//                        intent.putExtra("g_sec", goalSec);
-                        Log.v("kimsehee-set goal", goalHour+goalMin+goalSec);
+                        Log.v("kimsehee-2-set goal", goalHour+goalMin+goalSec);
 
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
 //                        startActivity(intent);

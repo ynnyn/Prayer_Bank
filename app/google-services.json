@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "827397348604",
-    "project_id": "prayer-bank-df9a4",
-    "storage_bucket": "prayer-bank-df9a4.appspot.com"
+    "project_number": "141865208205",
+    "project_id": "new-prayer-bank",
+    "storage_bucket": "new-prayer-bank.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:827397348604:android:f50abcfcd51602aaaf4b79",
+        "mobilesdk_app_id": "1:141865208205:android:089a976a6629f3211315c4",
         "android_client_info": {
           "package_name": "edu.handong.prayer_bank"
         }
       },
       "oauth_client": [
         {
-          "client_id": "827397348604-7ejirqc3nc4p8nubbduc0klnueaslosn.apps.googleusercontent.com",
+          "client_id": "141865208205-eqeq6anigj2e3q1fb2i5r6b3r9r02mpa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6G9gHbMHYNHripy_uSRi6qtX01zu-ACQ"
+          "current_key": "AIzaSyBteTdcaMDb7eR8NABHqTdOO8PfAEsrsGo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "827397348604-7ejirqc3nc4p8nubbduc0klnueaslosn.apps.googleusercontent.com",
+              "client_id": "141865208205-eqeq6anigj2e3q1fb2i5r6b3r9r02mpa.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

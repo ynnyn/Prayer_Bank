@@ -34,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     PreferenceManager pref;
 
-    // Firebase
+    // Firebase Analytics
     private FirebaseAnalytics mFirebaseAnalytics;
-    //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference mdatabase;
 
     //write
     FrameLayout today_prayer, today_thanks, favorites;
@@ -53,10 +51,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Firebase  --> DB가 아니라 analy에 연동시키기!
+        // Firebase Analytics 연동
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        // Firebase DB 연동
-        mdatabase = FirebaseDatabase.getInstance().getReference();
 
         ImageButton buttonOpen = findViewById(R.id.menuButton);
         buttonOpen.setOnClickListener(new Button.OnClickListener() {
